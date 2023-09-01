@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    var chatService = ChatService()
+    
     var body: some View {
         VStack {
+            ProgressView()
+                .task {
+                    do {
+                        let response = try await chatService.getChatData()
+                        print(response)
+                    } catch {
+                        print("hi")
+                    }
+                }
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)

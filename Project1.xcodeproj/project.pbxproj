@@ -14,6 +14,8 @@
 		162DDA912A9FD25800B56B1D /* Project1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDA902A9FD25800B56B1D /* Project1Tests.swift */; };
 		162DDA9B2A9FD25800B56B1D /* Project1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDA9A2A9FD25800B56B1D /* Project1UITests.swift */; };
 		162DDA9D2A9FD25800B56B1D /* Project1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDA9C2A9FD25800B56B1D /* Project1UITestsLaunchTests.swift */; };
+		162DDAAB2AA08E2100B56B1D /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDAAA2AA08E2100B56B1D /* ChatService.swift */; };
+		162DDAAE2AA08FF100B56B1D /* ChatGPTSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 162DDAAD2AA08FF100B56B1D /* ChatGPTSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,7 @@
 		162DDA962A9FD25800B56B1D /* Project1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		162DDA9A2A9FD25800B56B1D /* Project1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project1UITests.swift; sourceTree = "<group>"; };
 		162DDA9C2A9FD25800B56B1D /* Project1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project1UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		162DDAAA2AA08E2100B56B1D /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				162DDAAE2AA08FF100B56B1D /* ChatGPTSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,7 @@
 		162DDA7E2A9FD25600B56B1D /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
+				162DDAA92AA08E1200B56B1D /* Services */,
 				162DDA7F2A9FD25600B56B1D /* Project1App.swift */,
 				162DDA812A9FD25600B56B1D /* ContentView.swift */,
 				162DDA832A9FD25700B56B1D /* Assets.xcassets */,
@@ -127,6 +132,14 @@
 			path = Project1UITests;
 			sourceTree = "<group>";
 		};
+		162DDAA92AA08E1200B56B1D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				162DDAAA2AA08E2100B56B1D /* ChatService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +156,9 @@
 			dependencies = (
 			);
 			name = Project1;
+			packageProductDependencies = (
+				162DDAAD2AA08FF100B56B1D /* ChatGPTSwift */,
+			);
 			productName = Project1;
 			productReference = 162DDA7C2A9FD25600B56B1D /* Project1.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +231,9 @@
 				Base,
 			);
 			mainGroup = 162DDA732A9FD25600B56B1D;
+			packageReferences = (
+				162DDAAC2AA08FF100B56B1D /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
+			);
 			productRefGroup = 162DDA7D2A9FD25600B56B1D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -259,6 +278,7 @@
 			files = (
 				162DDA822A9FD25600B56B1D /* ContentView.swift in Sources */,
 				162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */,
+				162DDAAB2AA08E2100B56B1D /* ChatService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +597,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		162DDAAC2AA08FF100B56B1D /* XCRemoteSwiftPackageReference "ChatGPTSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alfianlosari/ChatGPTSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		162DDAAD2AA08FF100B56B1D /* ChatGPTSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 162DDAAC2AA08FF100B56B1D /* XCRemoteSwiftPackageReference "ChatGPTSwift" */;
+			productName = ChatGPTSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 162DDA742A9FD25600B56B1D /* Project object */;
 }
