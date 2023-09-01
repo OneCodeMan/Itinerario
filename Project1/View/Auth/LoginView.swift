@@ -86,7 +86,7 @@ struct LoginView: View {
             }
             
             if viewModel.isLoading {
-                CustomProgressView()
+                ProgressView()
             }
         }
     }

@@ -8,26 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    var chatService = ChatService()
-    
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
-        VStack {
-            ProgressView()
-                .task {
-                    do {
-                        let response = try await chatService.getChatData()
-                        print(response)
-                    } catch {
-                        print("hi")
-                    }
-                }
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        Group {
+            if viewModel.userSession != nil {
+                ProfileView()
+            } else {
+                LoginView()
+            }
         }
-        .padding()
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
