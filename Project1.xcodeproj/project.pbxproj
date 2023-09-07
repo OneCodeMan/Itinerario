@@ -30,6 +30,11 @@
 		162DDACA2AA2A5FF00B56B1D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDAC92AA2A5FF00B56B1D /* InputView.swift */; };
 		162DDACC2AA2A6DA00B56B1D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */; };
 		162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */; };
+		16965F672AAA370000973CD3 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F662AAA370000973CD3 /* Itinerary.swift */; };
+		16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */; };
+		16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6A2AAA37D400973CD3 /* ItineraryService.swift */; };
+		16965F6D2AAA3CC600973CD3 /* CreateItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */; };
+		16965F6F2AAA3F0F00973CD3 /* ItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		162DDAC92AA2A5FF00B56B1D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		16965F662AAA370000973CD3 /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
+		16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItineraryViewModel.swift; sourceTree = "<group>"; };
+		16965F6A2AAA37D400973CD3 /* ItineraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryService.swift; sourceTree = "<group>"; };
+		16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItineraryView.swift; sourceTree = "<group>"; };
+		16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				162DDAAA2AA08E2100B56B1D /* ChatService.swift */,
+				16965F6A2AAA37D400973CD3 /* ItineraryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 				162DDAC92AA2A5FF00B56B1D /* InputView.swift */,
 				162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */,
 				162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */,
+				16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,6 +200,7 @@
 			children = (
 				162DDAB22AA2A25500B56B1D /* User.swift */,
 				162DDAB42AA2A26C00B56B1D /* AuthError.swift */,
+				16965F662AAA370000973CD3 /* Itinerary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				162DDAB62AA2A2D700B56B1D /* AuthViewModel.swift */,
+				16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */,
+				16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -353,12 +368,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				162DDAB32AA2A25500B56B1D /* User.swift in Sources */,
+				16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */,
+				16965F672AAA370000973CD3 /* Itinerary.swift in Sources */,
 				162DDAB92AA2A30100B56B1D /* LoginView.swift in Sources */,
 				162DDA822A9FD25600B56B1D /* ContentView.swift in Sources */,
+				16965F6F2AAA3F0F00973CD3 /* ItineraryViewModel.swift in Sources */,
 				162DDABD2AA2A31E00B56B1D /* ResetPasswordView.swift in Sources */,
 				162DDAB72AA2A2D700B56B1D /* AuthViewModel.swift in Sources */,
 				162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */,
 				162DDAAB2AA08E2100B56B1D /* ChatService.swift in Sources */,
+				16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */,
+				16965F6D2AAA3CC600973CD3 /* CreateItineraryView.swift in Sources */,
 				162DDACA2AA2A5FF00B56B1D /* InputView.swift in Sources */,
 				162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */,
 				162DDAB52AA2A26C00B56B1D /* AuthError.swift in Sources */,
