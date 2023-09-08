@@ -17,7 +17,7 @@ struct ChatService {
             
             let response = try await api.sendMessage(text: message,
                                                      model: "gpt-3.5-turbo")
-            print("Here is the chat data response: \n\n\n\n")
+            print("ChatService: Here is the chat data response: \n\n\n\n")
             print(response)
             print("\n\n\n\n")
             return response

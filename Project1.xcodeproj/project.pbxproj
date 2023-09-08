@@ -44,6 +44,7 @@
 		16965F812AABBB5800973CD3 /* ChatResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F802AABBB5800973CD3 /* ChatResponseParser.swift */; };
 		16965F852AABC08900973CD3 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F842AABC08900973CD3 /* ChatViewModel.swift */; };
 		16965F872AABC3E000973CD3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16965F862AABC3E000973CD3 /* Keys.plist */; };
+		16965F8C2AABCA0300973CD3 /* GeneratedItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F8B2AABCA0300973CD3 /* GeneratedItineraryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		16965F802AABBB5800973CD3 /* ChatResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponseParser.swift; sourceTree = "<group>"; };
 		16965F842AABC08900973CD3 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		16965F862AABC3E000973CD3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
+		16965F8B2AABCA0300973CD3 /* GeneratedItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedItineraryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 				16965F762AAB9DC000973CD3 /* EmptyItineraryView.swift */,
 				16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */,
 				16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */,
+				16965F8B2AABCA0300973CD3 /* GeneratedItineraryView.swift */,
 			);
 			path = Itinerary;
 			sourceTree = "<group>";
@@ -461,6 +464,7 @@
 				162DDA822A9FD25600B56B1D /* ContentView.swift in Sources */,
 				16965F742AAB95C000973CD3 /* ItineraryListView.swift in Sources */,
 				16965F6F2AAA3F0F00973CD3 /* ItineraryViewModel.swift in Sources */,
+				16965F8C2AABCA0300973CD3 /* GeneratedItineraryView.swift in Sources */,
 				162DDABD2AA2A31E00B56B1D /* ResetPasswordView.swift in Sources */,
 				162DDAB72AA2A2D700B56B1D /* AuthViewModel.swift in Sources */,
 				16965F7C2AABA55500973CD3 /* ItineraryRowView.swift in Sources */,

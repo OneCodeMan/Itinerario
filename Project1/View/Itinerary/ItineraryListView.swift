@@ -12,7 +12,17 @@ struct ItineraryListView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
+            Text("")
+                .navigationTitle("Your Itineraries")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        NavigationLink(destination: CreateItineraryView()) {
+                            Text("New Element")
+                        }
+                    }
+                }
+            
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 10) {
                     let userSignedIn = authViewModel.userSession != nil

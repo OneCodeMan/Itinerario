@@ -30,13 +30,16 @@ class ChatViewModel: ObservableObject {
         let rawResponse = try await ChatService.getChatData(message: message)
         let parsedResponse = ChatResponseParser.parseResponse(rawResponse: rawResponse)
         self.response = parsedResponse
+        
+        print("Here's the parsed response from ChatViewModel: \n\n")
+        print(parsedResponse)
     }
 
     private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int) -> String {
         let message = """
             Answer in plain text please. Recommend me a \(numberOfDays) day itinerary to \(city) \(country). Add the delimiter "!@#$%^&*" after each set of activities. Add "<place>" and "</place>" between each monument and mentioned place. Instead of bullet points, use the tags "<activity>" and "</activity>"
 
-            Format:
+            Format Example:
 
             !@#$%^&*
             Day 1:
