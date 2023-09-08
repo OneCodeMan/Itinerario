@@ -37,6 +37,9 @@
 		16965F6F2AAA3F0F00973CD3 /* ItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */; };
 		16965F722AAB94E000973CD3 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F712AAB94E000973CD3 /* AuthView.swift */; };
 		16965F742AAB95C000973CD3 /* ItineraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F732AAB95C000973CD3 /* ItineraryListView.swift */; };
+		16965F772AAB9DC000973CD3 /* EmptyItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F762AAB9DC000973CD3 /* EmptyItineraryView.swift */; };
+		16965F7A2AABA26400973CD3 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F792AABA26400973CD3 /* TestView.swift */; };
+		16965F7C2AABA55500973CD3 /* ItineraryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModel.swift; sourceTree = "<group>"; };
 		16965F712AAB94E000973CD3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		16965F732AAB95C000973CD3 /* ItineraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryListView.swift; sourceTree = "<group>"; };
+		16965F762AAB9DC000973CD3 /* EmptyItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyItineraryView.swift; sourceTree = "<group>"; };
+		16965F792AABA26400973CD3 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +197,7 @@
 		162DDAAF2AA2A23600B56B1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16965F782AABA25B00973CD3 /* Testing */,
 				16965F702AAB94C000973CD3 /* Itinerary */,
 				162DDACF2AA2AAC700B56B1D /* Auth */,
 				162DDAC92AA2A5FF00B56B1D /* InputView.swift */,
@@ -236,6 +243,8 @@
 			children = (
 				16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */,
 				16965F732AAB95C000973CD3 /* ItineraryListView.swift */,
+				16965F762AAB9DC000973CD3 /* EmptyItineraryView.swift */,
+				16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */,
 			);
 			path = Itinerary;
 			sourceTree = "<group>";
@@ -245,6 +254,14 @@
 			children = (
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		16965F782AABA25B00973CD3 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				16965F792AABA26400973CD3 /* TestView.swift */,
+			);
+			path = Testing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,15 +406,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16965F7A2AABA26400973CD3 /* TestView.swift in Sources */,
 				162DDAB32AA2A25500B56B1D /* User.swift in Sources */,
 				16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */,
 				16965F672AAA370000973CD3 /* Itinerary.swift in Sources */,
 				162DDAB92AA2A30100B56B1D /* LoginView.swift in Sources */,
+				16965F772AAB9DC000973CD3 /* EmptyItineraryView.swift in Sources */,
 				162DDA822A9FD25600B56B1D /* ContentView.swift in Sources */,
 				16965F742AAB95C000973CD3 /* ItineraryListView.swift in Sources */,
 				16965F6F2AAA3F0F00973CD3 /* ItineraryViewModel.swift in Sources */,
 				162DDABD2AA2A31E00B56B1D /* ResetPasswordView.swift in Sources */,
 				162DDAB72AA2A2D700B56B1D /* AuthViewModel.swift in Sources */,
+				16965F7C2AABA55500973CD3 /* ItineraryRowView.swift in Sources */,
 				16965F722AAB94E000973CD3 /* AuthView.swift in Sources */,
 				162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */,
 				162DDAAB2AA08E2100B56B1D /* ChatService.swift in Sources */,

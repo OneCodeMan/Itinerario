@@ -22,6 +22,12 @@ struct ContentView: View {
                 .tabItem {
                     Label("Account", systemImage: "person.crop.circle")
                 }
+            
+            // Test view
+            TestView()
+                .tabItem {
+                    Label("TEST", systemImage: "gear")
+                }
         }
     }
     

@@ -9,25 +9,27 @@ import SwiftUI
 
 struct ItineraryListView: View {
     @StateObject var itineraryViewModel = ItineraryViewModel()
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
-        Group {
-            let userSignedIn = viewModel.userSession != nil
-            if userSignedIn {
-                ForEach(itineraryViewModel.itineraries) { itinerary in
-                    Text("hey")
+        NavigationView {
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 10) {
+                    let userSignedIn = authViewModel.userSession != nil
+                    if userSignedIn {
+                        if itineraryViewModel.itineraries.isEmpty {
+                            EmptyItineraryView()
+                        } else {
+                            ForEach(itineraryViewModel.itineraries) { itinerary in
+                                ItineraryRowView(itinerary: itinerary)
+                            }
+                        }
+                    } else {
+                        EmptyItineraryView()
+                    }
                 }
-                // if user has itineraries
-                // display itineraries
-                // else
-                // display "create an itinerary!"
-            } else {
-                Text("yoU Needa sign in bud")
+                .padding()
             }
-        }
-        .task {
-            print(itineraryViewModel.itineraries)
         }
     }
 }
