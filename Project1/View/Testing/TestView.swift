@@ -10,6 +10,7 @@ import SwiftUI
 struct TestView: View {
     @StateObject var createItineraryViewModel = CreateItineraryViewModel()
     @StateObject var itineraryViewModel = ItineraryViewModel()
+    @StateObject var chatViewModel = ChatViewModel()
     
     var body: some View {
         VStack {
@@ -23,6 +24,12 @@ struct TestView: View {
                 Task { try await createItineraryViewModel.uploadMockItinerary() }
             } label: {
                 SettingsRowView(imageName: "arrow.left.circle", title: "Submit sample itinerary", tintColor: .red)
+            }
+            
+            Button {
+                Task { try await chatViewModel.sendItineraryRequest(city: "Lisbon", numberOfDays: 2) }
+            } label: {
+                SettingsRowView(imageName: "bolt.fill", title: "Send sample OpenAI request", tintColor: .red)
             }
         }
     }
