@@ -12,8 +12,7 @@ struct ItineraryDetailView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                Text("Detailview for \(itinerary.country), \(itinerary.city)")
-                Text("hi")
+                Text(itinerary.city)
                 ForEach(itinerary.details) { detail in
                     Text(detail)
                 }

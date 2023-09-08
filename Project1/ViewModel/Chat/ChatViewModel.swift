@@ -5,11 +5,19 @@
 //  Created by Dave Gumba on 2023-09-08.
 //
 
+/**
+ Responsible for
+ a) taking user input,
+ b) generating a message to OpenAI with the user input
+ c) handling the response from OpenAI, and
+ d) sending the OpenAI response to the view
+ */
+
 import Foundation
 
 @MainActor
 class ChatViewModel: ObservableObject {
-    @Published var response = ""
+    @Published var response: [String] = [""]
     
     func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int) async throws {
         print("DEBUG -- ChatViewModel -> sendItineraryRequest called\n")
@@ -19,7 +27,9 @@ class ChatViewModel: ObservableObject {
         
         print("\n\n Message: \n\n\(message)\n\n")
         
-        self.response = try await ChatService.getChatData(message: message)
+        let rawResponse = try await ChatService.getChatData(message: message)
+        let parsedResponse = ChatResponseParser.parseResponse(rawResponse: rawResponse)
+        self.response = parsedResponse
     }
 
     private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int) -> String {

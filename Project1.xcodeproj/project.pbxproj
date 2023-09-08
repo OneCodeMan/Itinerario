@@ -134,8 +134,8 @@
 		162DDA732A9FD25600B56B1D = {
 			isa = PBXGroup;
 			children = (
-				16965F862AABC3E000973CD3 /* Keys.plist */,
 				162DDA7E2A9FD25600B56B1D /* Project1 */,
+				16965F862AABC3E000973CD3 /* Keys.plist */,
 				162DDABE2AA2A41E00B56B1D /* GoogleService-Info.plist */,
 				162DDA8F2A9FD25800B56B1D /* Project1Tests */,
 				162DDA992A9FD25800B56B1D /* Project1UITests */,
@@ -229,10 +229,9 @@
 		162DDAB12AA2A23E00B56B1D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				162DDAB62AA2A2D700B56B1D /* AuthViewModel.swift */,
-				16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */,
-				16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */,
-				16965F842AABC08900973CD3 /* ChatViewModel.swift */,
+				16965F8A2AABC53500973CD3 /* Chat */,
+				16965F892AABC53000973CD3 /* Auth */,
+				16965F882AABC52800973CD3 /* Itinerary */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -282,6 +281,31 @@
 				16965F802AABBB5800973CD3 /* ChatResponseParser.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		16965F882AABC52800973CD3 /* Itinerary */ = {
+			isa = PBXGroup;
+			children = (
+				16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */,
+				16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */,
+			);
+			path = Itinerary;
+			sourceTree = "<group>";
+		};
+		16965F892AABC53000973CD3 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				162DDAB62AA2A2D700B56B1D /* AuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		16965F8A2AABC53500973CD3 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				16965F842AABC08900973CD3 /* ChatViewModel.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

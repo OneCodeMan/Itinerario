@@ -8,8 +8,19 @@
 import SwiftUI
 
 struct CreateItineraryView: View {
+    @ObservedObject var chatViewModel = ChatViewModel()
+    @State var city = "Paris"
+    @State var numberOfDays = 3
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            TextField("City", text: $city)
+            Button {
+                Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays) }
+            } label: {
+                Text("Generate!")
+            }
+        }
     }
 }
 
