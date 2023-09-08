@@ -42,8 +42,8 @@
 		16965F7C2AABA55500973CD3 /* ItineraryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */; };
 		16965F7E2AABAE2300973CD3 /* ItineraryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */; };
 		16965F812AABBB5800973CD3 /* ChatResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F802AABBB5800973CD3 /* ChatResponseParser.swift */; };
-		16965F832AABBC9800973CD3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16965F822AABBC9800973CD3 /* Keys.plist */; };
 		16965F852AABC08900973CD3 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F842AABC08900973CD3 /* ChatViewModel.swift */; };
+		16965F872AABC3E000973CD3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16965F862AABC3E000973CD3 /* Keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +97,8 @@
 		16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRowView.swift; sourceTree = "<group>"; };
 		16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDetailView.swift; sourceTree = "<group>"; };
 		16965F802AABBB5800973CD3 /* ChatResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponseParser.swift; sourceTree = "<group>"; };
-		16965F822AABBC9800973CD3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		16965F842AABC08900973CD3 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		16965F862AABC3E000973CD3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,8 +134,8 @@
 		162DDA732A9FD25600B56B1D = {
 			isa = PBXGroup;
 			children = (
+				16965F862AABC3E000973CD3 /* Keys.plist */,
 				162DDA7E2A9FD25600B56B1D /* Project1 */,
-				16965F822AABBC9800973CD3 /* Keys.plist */,
 				162DDABE2AA2A41E00B56B1D /* GoogleService-Info.plist */,
 				162DDA8F2A9FD25800B56B1D /* Project1Tests */,
 				162DDA992A9FD25800B56B1D /* Project1UITests */,
@@ -399,7 +399,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16965F832AABBC9800973CD3 /* Keys.plist in Resources */,
+				16965F872AABC3E000973CD3 /* Keys.plist in Resources */,
 				162DDA872A9FD25700B56B1D /* Preview Assets.xcassets in Resources */,
 				162DDA842A9FD25700B56B1D /* Assets.xcassets in Resources */,
 				162DDABF2AA2A41E00B56B1D /* GoogleService-Info.plist in Resources */,
