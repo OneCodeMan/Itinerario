@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 @main
-struct LoginSignUpApp: App {
+struct Project1App: App {
     @StateObject var viewModel = AuthViewModel()
     
     init() {

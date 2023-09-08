@@ -10,12 +10,18 @@ import SwiftUI
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
-        Group {
-            if viewModel.userSession != nil {
-                ProfileView()
-            } else {
-                LoginView()
-            }
+        TabView {
+            // Itineraries
+            ItineraryListView()
+                .tabItem {
+                    Label("Itineraries", systemImage: "map.fill")
+                }
+            
+            // Profile view
+            AuthView()
+                .tabItem {
+                    Label("Account", systemImage: "person.crop.circle")
+                }
         }
     }
     

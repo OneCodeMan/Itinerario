@@ -35,6 +35,8 @@
 		16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6A2AAA37D400973CD3 /* ItineraryService.swift */; };
 		16965F6D2AAA3CC600973CD3 /* CreateItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */; };
 		16965F6F2AAA3F0F00973CD3 /* ItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */; };
+		16965F722AAB94E000973CD3 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F712AAB94E000973CD3 /* AuthView.swift */; };
+		16965F742AAB95C000973CD3 /* ItineraryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F732AAB95C000973CD3 /* ItineraryListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		16965F6A2AAA37D400973CD3 /* ItineraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryService.swift; sourceTree = "<group>"; };
 		16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItineraryView.swift; sourceTree = "<group>"; };
 		16965F6E2AAA3F0F00973CD3 /* ItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModel.swift; sourceTree = "<group>"; };
+		16965F712AAB94E000973CD3 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		16965F732AAB95C000973CD3 /* ItineraryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		162DDA7E2A9FD25600B56B1D /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
+				16965F752AAB980A00973CD3 /* Data */,
 				162DDAB12AA2A23E00B56B1D /* ViewModel */,
 				162DDAB02AA2A23A00B56B1D /* Model */,
 				162DDAAF2AA2A23600B56B1D /* View */,
@@ -186,11 +191,10 @@
 		162DDAAF2AA2A23600B56B1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16965F702AAB94C000973CD3 /* Itinerary */,
 				162DDACF2AA2AAC700B56B1D /* Auth */,
 				162DDAC92AA2A5FF00B56B1D /* InputView.swift */,
-				162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */,
 				162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */,
-				16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,11 +222,29 @@
 		162DDACF2AA2AAC700B56B1D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */,
 				162DDABC2AA2A31E00B56B1D /* ResetPasswordView.swift */,
 				162DDABA2AA2A30F00B56B1D /* RegistrationView.swift */,
 				162DDAB82AA2A30100B56B1D /* LoginView.swift */,
+				16965F712AAB94E000973CD3 /* AuthView.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		16965F702AAB94C000973CD3 /* Itinerary */ = {
+			isa = PBXGroup;
+			children = (
+				16965F6C2AAA3CC600973CD3 /* CreateItineraryView.swift */,
+				16965F732AAB95C000973CD3 /* ItineraryListView.swift */,
+			);
+			path = Itinerary;
+			sourceTree = "<group>";
+		};
+		16965F752AAB980A00973CD3 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,9 +394,11 @@
 				16965F672AAA370000973CD3 /* Itinerary.swift in Sources */,
 				162DDAB92AA2A30100B56B1D /* LoginView.swift in Sources */,
 				162DDA822A9FD25600B56B1D /* ContentView.swift in Sources */,
+				16965F742AAB95C000973CD3 /* ItineraryListView.swift in Sources */,
 				16965F6F2AAA3F0F00973CD3 /* ItineraryViewModel.swift in Sources */,
 				162DDABD2AA2A31E00B56B1D /* ResetPasswordView.swift in Sources */,
 				162DDAB72AA2A2D700B56B1D /* AuthViewModel.swift in Sources */,
+				16965F722AAB94E000973CD3 /* AuthView.swift in Sources */,
 				162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */,
 				162DDAAB2AA08E2100B56B1D /* ChatService.swift in Sources */,
 				16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */,

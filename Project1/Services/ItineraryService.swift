@@ -10,14 +10,14 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct ItineraryService {
-    
     static func uploadItinerary(_ itinerary: Itinerary) async throws {
         guard let itineraryData = try? Firestore.Encoder().encode(itinerary) else { return }
         try await Firestore.firestore().collection("itineraries").addDocument(data: itineraryData)
     }
     
     static func fetchItineraries() async throws -> [Itinerary] {
-        let snapshot = try await Firestore.firestore().collection("itineraries").order(by: "timestamp", descending: true).getDocuments()
+        guard let uid = Auth.auth().currentUser?.uid else { return [] }
+        let snapshot = try await Firestore.firestore().collection("itineraries").whereField("ownerUid", isEqualTo: uid).getDocuments()
         
         let documents = snapshot.documents.compactMap({ try? $0.data(as: Itinerary.self) })
         

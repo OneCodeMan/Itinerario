@@ -12,9 +12,11 @@ import Firebase
 struct Itinerary: Identifiable, Codable {
     @DocumentID var itineraryId: String?
     let ownerUid: String
+    let country: String
+    let city: String
     let numberOfDays: Int
+    let details: [String]
     let timestamp: Timestamp
-    let details: [[String]]
     
     var id: String {
         return itineraryId ?? NSUUID().uuidString
