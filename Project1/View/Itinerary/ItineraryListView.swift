@@ -21,7 +21,10 @@ struct ItineraryListView: View {
                             EmptyItineraryView()
                         } else {
                             ForEach(itineraryViewModel.itineraries) { itinerary in
-                                ItineraryRowView(itinerary: itinerary)
+                                NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
+                                    ItineraryRowView(itinerary: itinerary)
+                                }
+                                
                             }
                         }
                     } else {

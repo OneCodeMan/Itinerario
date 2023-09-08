@@ -24,3 +24,11 @@ struct Itinerary: Identifiable, Codable {
     
     var user: User?
 }
+
+// This is so we can iterate through detils
+extension String: Identifiable {
+    public typealias ID = Int
+    public var id: Int {
+        return hash
+    }
+}
