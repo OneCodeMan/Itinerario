@@ -13,6 +13,7 @@ struct ItineraryDetailView: View {
         ScrollView {
             LazyVStack {
                 Text("Detailview for \(itinerary.country), \(itinerary.city)")
+                Text("hi")
                 ForEach(itinerary.details) { detail in
                     Text(detail)
                 }

@@ -41,6 +41,7 @@
 		16965F7A2AABA26400973CD3 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F792AABA26400973CD3 /* TestView.swift */; };
 		16965F7C2AABA55500973CD3 /* ItineraryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */; };
 		16965F7E2AABAE2300973CD3 /* ItineraryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */; };
+		16965F812AABBB5800973CD3 /* ChatResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F802AABBB5800973CD3 /* ChatResponseParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		16965F792AABA26400973CD3 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRowView.swift; sourceTree = "<group>"; };
 		16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDetailView.swift; sourceTree = "<group>"; };
+		16965F802AABBB5800973CD3 /* ChatResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponseParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 		162DDA7E2A9FD25600B56B1D /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
+				16965F7F2AABBB4E00973CD3 /* Util */,
 				16965F752AAB980A00973CD3 /* Data */,
 				162DDAB12AA2A23E00B56B1D /* ViewModel */,
 				162DDAB02AA2A23A00B56B1D /* Model */,
@@ -265,6 +268,14 @@
 				16965F792AABA26400973CD3 /* TestView.swift */,
 			);
 			path = Testing;
+			sourceTree = "<group>";
+		};
+		16965F7F2AABBB4E00973CD3 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				16965F802AABBB5800973CD3 /* ChatResponseParser.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +443,7 @@
 				162DDAB52AA2A26C00B56B1D /* AuthError.swift in Sources */,
 				162DDACC2AA2A6DA00B56B1D /* ProfileView.swift in Sources */,
 				162DDABB2AA2A30F00B56B1D /* RegistrationView.swift in Sources */,
+				16965F812AABBB5800973CD3 /* ChatResponseParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
