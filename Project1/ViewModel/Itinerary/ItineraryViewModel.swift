@@ -8,7 +8,7 @@
 import Foundation
 
 class ItineraryViewModel: ObservableObject {
-    @Published var itineraries = [Itinerary]()
+    @Published var itineraries = [ItineraryDisplay]()
     
     init() {
         Task { try await fetchItineraries() }
@@ -16,6 +16,7 @@ class ItineraryViewModel: ObservableObject {
     
     @MainActor
     func fetchItineraries() async throws {
-        self.itineraries = try await ItineraryService.fetchItineraries()
+        let fetchedItineraries = try await ItineraryService.fetchItineraries()
+        self.itineraries = await ItineraryParser.parseResponseFromFirebase(itineraries: fetchedItineraries)
     }
 }

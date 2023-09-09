@@ -24,6 +24,17 @@ struct ChatResponse {
     var parsedResponse: [String]
 }
 
+struct ItineraryDisplay: Identifiable {
+    let id = UUID()
+
+    var city: String
+    var country: String = ""
+    var numberOfDays: Int
+    
+    var places: [[String]]
+    var activities: [[String]]
+}
+
 struct ItineraryParser {
     
     private static let dayDelimiter = "!@#$%^&*"
@@ -43,6 +54,22 @@ struct ItineraryParser {
             return ChatResponse(places: [], activities: [], parsedResponse: [""])
         }
         
+    }
+    
+    static func parseResponseFromFirebase(itineraries: [Itinerary]) async -> [ItineraryDisplay] {
+        var itineraryDisplays = [ItineraryDisplay]()
+        do {
+            for itinerary in itineraries {
+                let places = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: placeTag)
+                let activities = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: activityTag)
+                let itineraryDisplay = ItineraryDisplay(city: itinerary.city, numberOfDays: itinerary.numberOfDays, places: places, activities: activities)
+                itineraryDisplays.append(itineraryDisplay)
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return itineraryDisplays
     }
     
     // Get an array of things between certain tags.

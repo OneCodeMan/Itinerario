@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItineraryRowView: View {
-    let itinerary: Itinerary
+    let itinerary: ItineraryDisplay
     var body: some View {
         VStack {
             Text("\(String(itinerary.numberOfDays)) days in \(itinerary.city), \(itinerary.country ?? "")")
