@@ -13,12 +13,23 @@ struct CreateItineraryView: View {
     @State var numberOfDays = 3
 
     var body: some View {
-        VStack {
-            TextField("City", text: $city)
-            Button {
-                Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays) }
-            } label: {
-                Text("Generate!")
+        ScrollView {
+            VStack {
+                
+                // The UI to send request
+                Group {
+                    TextField("City", text: $city)
+                    Button {
+                        Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays) }
+                    } label: {
+                        Text("Generate!")
+                    }
+                }
+                
+                // The response
+                ForEach(chatViewModel.response) { point in
+                    Text(point)
+                }
             }
         }
     }

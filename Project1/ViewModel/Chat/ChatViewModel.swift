@@ -28,7 +28,7 @@ class ChatViewModel: ObservableObject {
         print("\n\n Message: \n\n\(message)\n\n")
         
         let rawResponse = try await ChatService.getChatData(message: message)
-        let parsedResponse = ChatResponseParser.parseResponse(rawResponse: rawResponse)
+        let parsedResponse = await ChatResponseParser.parseResponse(rawResponse: rawResponse)
         self.response = parsedResponse
         
         print("Here's the parsed response from ChatViewModel: \n\n")

@@ -45,6 +45,7 @@
 		16965F852AABC08900973CD3 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F842AABC08900973CD3 /* ChatViewModel.swift */; };
 		16965F872AABC3E000973CD3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16965F862AABC3E000973CD3 /* Keys.plist */; };
 		16965F8C2AABCA0300973CD3 /* GeneratedItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F8B2AABCA0300973CD3 /* GeneratedItineraryView.swift */; };
+		16965F8F2AABDDD300973CD3 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 16965F8E2AABDDD300973CD3 /* SwiftSoup */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 				162DDAC42AA2A4A300B56B1D /* FirebaseFirestore in Frameworks */,
 				162DDAC82AA2A4A300B56B1D /* FirebaseStorage in Frameworks */,
 				162DDAC62AA2A4A300B56B1D /* FirebaseFirestoreSwift in Frameworks */,
+				16965F8F2AABDDD300973CD3 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +335,7 @@
 				162DDAC32AA2A4A300B56B1D /* FirebaseFirestore */,
 				162DDAC52AA2A4A300B56B1D /* FirebaseFirestoreSwift */,
 				162DDAC72AA2A4A300B56B1D /* FirebaseStorage */,
+				16965F8E2AABDDD300973CD3 /* SwiftSoup */,
 			);
 			productName = Project1;
 			productReference = 162DDA7C2A9FD25600B56B1D /* Project1.app */;
@@ -409,6 +412,7 @@
 			packageReferences = (
 				162DDAAC2AA08FF100B56B1D /* XCRemoteSwiftPackageReference "ChatGPTSwift" */,
 				162DDAC02AA2A4A300B56B1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				16965F8D2AABDDD300973CD3 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 162DDA7D2A9FD25600B56B1D /* Products */;
 			projectDirPath = "";
@@ -816,6 +820,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		16965F8D2AABDDD300973CD3 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -843,6 +855,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 162DDAC02AA2A4A300B56B1D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		16965F8E2AABDDD300973CD3 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 16965F8D2AABDDD300973CD3 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
