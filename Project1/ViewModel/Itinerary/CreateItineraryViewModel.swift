@@ -9,10 +9,9 @@ import Firebase
 
 class CreateItineraryViewModel: ObservableObject {
     
-    func uploadItinerary() async throws {
+    func uploadItinerary(city: String, numberOfDays: Int, details: [String]) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        let itinerary = Itinerary(ownerUid: uid, country: "Slovenia", city: "Ljubljana", numberOfDays: 3, details: ["Day 1", "Day 2", "Day 3"], timestamp: Timestamp())
+        let itinerary = Itinerary(ownerUid: uid, city: city, numberOfDays: numberOfDays, details: details, timestamp: Timestamp())
         try await ItineraryService.uploadItinerary(itinerary)
     }
 }

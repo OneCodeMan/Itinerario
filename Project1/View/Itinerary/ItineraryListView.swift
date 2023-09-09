@@ -18,7 +18,7 @@ struct ItineraryListView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         NavigationLink(destination: CreateItineraryView()) {
-                            Text("New Element")
+                            Text("New Itinerary")
                         }
                     }
                 }

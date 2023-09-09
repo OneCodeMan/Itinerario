@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateItineraryView: View {
+    @StateObject var createItineraryViewModel = CreateItineraryViewModel()
     @ObservedObject var chatViewModel = ChatViewModel()
     @State var city = "Paris"
     @State var numberOfDays = 3
@@ -33,7 +34,16 @@ struct CreateItineraryView: View {
                         Text(activity)
                     }
                 }
+                
+                if !chatViewModel.activities.isEmpty {
+                    Button {
+                        Task { try await createItineraryViewModel.uploadItinerary(city: self.city, numberOfDays: self.numberOfDays, details: chatViewModel.response) }
+                    } label: {
+                        Text("Save to my itineraries")
+                    }
+                }
             }
+            .padding()
         }
     }
 }

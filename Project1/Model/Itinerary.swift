@@ -12,7 +12,7 @@ import Firebase
 struct Itinerary: Identifiable, Codable {
     @DocumentID var itineraryId: String?
     let ownerUid: String
-    let country: String
+    var country: String?
     let city: String
     let numberOfDays: Int
     let details: [String]
