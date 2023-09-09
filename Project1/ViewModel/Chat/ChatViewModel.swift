@@ -18,6 +18,7 @@ import Foundation
 @MainActor
 class ChatViewModel: ObservableObject {
     @Published var response: [String] = [""]
+    @Published var places: [String] = [""]
     
     func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int) async throws {
         print("DEBUG -- ChatViewModel -> sendItineraryRequest called\n")
@@ -28,11 +29,14 @@ class ChatViewModel: ObservableObject {
         print("\n\n Message: \n\n\(message)\n\n")
         
         let rawResponse = try await ChatService.getChatData(message: message)
-        let parsedResponse = await ChatResponseParser.parseResponse(rawResponse: rawResponse)
-        self.response = parsedResponse
+        let parsedResponseData = await ChatResponseParser.parseResponse(rawResponse: rawResponse)
+        self.response = parsedResponseData.parsedResponse
+        self.places = parsedResponseData.places
         
         print("Here's the parsed response from ChatViewModel: \n\n")
-        print(parsedResponse)
+        print(self.response)
+        print("Here are the places:\n")
+        print(self.places)
     }
 
     private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int) -> String {

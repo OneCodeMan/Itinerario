@@ -10,23 +10,23 @@ import SwiftSoup
 
 struct ChatResponse {
     var places: [String]
-    var parsedResponse: String
+    var parsedResponse: [String]
 }
 
 struct ChatResponseParser {
     
     private static let dayDelimiter = "!@#$%^&*"
     
-    static func parseResponse(rawResponse: String) async -> [String] {
+    static func parseResponse(rawResponse: String) async -> ChatResponse {
         let parsedResponse = rawResponse
                             .components(separatedBy: dayDelimiter)
                             .filter({ !$0.isEmpty })
         do {
             let places = try await extractPlaces(arrayedResponse: parsedResponse)
-            return parsedResponse
+            return ChatResponse(places: places, parsedResponse: parsedResponse)
         } catch {
             print("Error from parseResponse")
-            return []
+            return ChatResponse(places: [], parsedResponse: [""])
         }
         
     }
@@ -35,7 +35,7 @@ struct ChatResponseParser {
         var places: [String] = []
         for (day, plan) in arrayedResponse.enumerated() {
             let doc = try SwiftSoup.parse(plan)
-            let taggedPlaces = try doc.select("activity")
+            let taggedPlaces = try doc.select("place")
             
             for place in taggedPlaces.array() {
                 places.append(try place.text())
