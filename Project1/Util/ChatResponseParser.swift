@@ -9,7 +9,15 @@ import Foundation
 import SwiftSoup
 
 struct ChatResponse {
-    var places: [String]
+    
+    // Highlighted places from response. Each index represents a day
+    var places: [[String]]
+    
+    // For the viewmodel to display the itinerary to the view
+    var responseToDisplay: [[String]]?
+    
+    // For storing into Firebase
+    // Do we need this?
     var parsedResponse: [String]
 }
 
@@ -31,14 +39,14 @@ struct ChatResponseParser {
         
     }
     
-    private static func extractPlaces(arrayedResponse: [String]) async throws -> [String]  {
-        var places: [String] = []
+    private static func extractPlaces(arrayedResponse: [String]) async throws -> [[String]]  {
+        var places: [[String]] = Array(repeating: [], count: arrayedResponse.count)
         for (day, plan) in arrayedResponse.enumerated() {
             let doc = try SwiftSoup.parse(plan)
             let taggedPlaces = try doc.select("place")
             
             for place in taggedPlaces.array() {
-                places.append(try place.text())
+                places[day].append(try place.text())
             }
         }
         

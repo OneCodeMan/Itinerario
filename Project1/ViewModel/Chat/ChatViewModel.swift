@@ -18,7 +18,7 @@ import Foundation
 @MainActor
 class ChatViewModel: ObservableObject {
     @Published var response: [String] = [""]
-    @Published var places: [String] = [""]
+    @Published var places: [[String]] = [[""]]
     
     func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int) async throws {
         print("DEBUG -- ChatViewModel -> sendItineraryRequest called\n")
