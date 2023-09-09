@@ -27,14 +27,16 @@ struct ChatResponse {
 struct ItineraryParser {
     
     private static let dayDelimiter = "!@#$%^&*"
+    private static let placeTag = "place"
+    private static let activityTag = "activity"
     
     static func parseResponseFromOpenAI(rawResponse: String) async -> ChatResponse {
         let parsedResponse = rawResponse
             .components(separatedBy: dayDelimiter)
             .filter({ !$0.isEmpty })
         do {
-            let places = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: "place")
-            let activities = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: "activity")
+            let places = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: placeTag)
+            let activities = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: activityTag)
             return ChatResponse(places: places, activities: activities, parsedResponse: parsedResponse)
         } catch {
             print("Error from parseResponse")
