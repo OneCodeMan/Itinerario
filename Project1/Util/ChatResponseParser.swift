@@ -13,6 +13,9 @@ struct ChatResponse {
     // Highlighted places from response. Each index represents a day
     var places: [[String]]
     
+    // each index represents a day
+    var activities: [[String]]
+    
     // For the viewmodel to display the itinerary to the view
     var responseToDisplay: [[String]]?
     
@@ -27,18 +30,36 @@ struct ChatResponseParser {
     
     static func parseResponse(rawResponse: String) async -> ChatResponse {
         let parsedResponse = rawResponse
-                            .components(separatedBy: dayDelimiter)
-                            .filter({ !$0.isEmpty })
+            .components(separatedBy: dayDelimiter)
+            .filter({ !$0.isEmpty })
         do {
             let places = try await extractPlaces(arrayedResponse: parsedResponse)
-            return ChatResponse(places: places, parsedResponse: parsedResponse)
+            let activities = try await extractActivities(arrayedResponse: parsedResponse)
+            return ChatResponse(places: places, activities: activities, parsedResponse: parsedResponse)
         } catch {
             print("Error from parseResponse")
-            return ChatResponse(places: [], parsedResponse: [""])
+            return ChatResponse(places: [], activities: [], parsedResponse: [""])
         }
         
     }
     
+    // TODO: refactor
+    private static func extractActivities(arrayedResponse: [String]) async throws -> [[String]] {
+        var days: [[String]] = Array(repeating: [], count: arrayedResponse.count)
+        for (day, plan) in arrayedResponse.enumerated() {
+            let doc = try SwiftSoup.parse(plan)
+            let taggedActivities = try doc.select("activity")
+            
+            for activity in taggedActivities.array() {
+                days[day].append(try activity.text())
+            }
+            
+        }
+        return days
+    }
+    
+    // Get an array of places for each day of the trip.
+    // TODO: refactor
     private static func extractPlaces(arrayedResponse: [String]) async throws -> [[String]]  {
         var places: [[String]] = Array(repeating: [], count: arrayedResponse.count)
         for (day, plan) in arrayedResponse.enumerated() {
@@ -51,20 +72,5 @@ struct ChatResponseParser {
         }
         
         return places
-        
     }
-    
-//    func parseCustomTags(htmlString: String, customTagName: String) {
-//        do {
-//            let doc = try SwiftSoup.parse(htmlString)
-//
-//            // Extract and print content from custom tags
-//            let customTags = try doc.select(customTagName)
-//            for customTag in customTags.array() {
-//                print("Custom Tag (\(customTagName)): \(try customTag.text())")
-//            }
-//        } catch let error {
-//            print("Error parsing HTML: \(error.localizedDescription)")
-//        }
-//    }
 }
