@@ -27,9 +27,10 @@ struct CreateItineraryView: View {
                 }
                 
                 // The response
-                ForEach($chatViewModel.activities) { day in
-                    ForEach(day) { activity in
-                        Text(day)
+                ForEach(Array(chatViewModel.activities.enumerated()), id: \.element) { index, day in
+                    Text("Day \(index + 1)")
+                    ForEach(day, id: \.self) { activity in
+                        Text(activity)
                     }
                 }
             }
