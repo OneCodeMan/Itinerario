@@ -29,8 +29,11 @@ class ChatViewModel: ObservableObject {
         
         print("\n\n Message: \n\n\(message)\n\n")
         
+        // Fetch from API, get response
         let rawResponse = try await ChatService.getChatData(message: message)
-        let parsedResponseData = await ChatResponseParser.parseResponse(rawResponse: rawResponse)
+        
+        // Parse the response.
+        let parsedResponseData = await ItineraryParser.parseResponseFromOpenAI(rawResponse: rawResponse)
         self.response = parsedResponseData.parsedResponse
         self.places = parsedResponseData.places
         self.activities = parsedResponseData.activities

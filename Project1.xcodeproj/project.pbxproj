@@ -41,7 +41,7 @@
 		16965F7A2AABA26400973CD3 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F792AABA26400973CD3 /* TestView.swift */; };
 		16965F7C2AABA55500973CD3 /* ItineraryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */; };
 		16965F7E2AABAE2300973CD3 /* ItineraryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */; };
-		16965F812AABBB5800973CD3 /* ChatResponseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F802AABBB5800973CD3 /* ChatResponseParser.swift */; };
+		16965F812AABBB5800973CD3 /* ItineraryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F802AABBB5800973CD3 /* ItineraryParser.swift */; };
 		16965F852AABC08900973CD3 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F842AABC08900973CD3 /* ChatViewModel.swift */; };
 		16965F872AABC3E000973CD3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16965F862AABC3E000973CD3 /* Keys.plist */; };
 		16965F8F2AABDDD300973CD3 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 16965F8E2AABDDD300973CD3 /* SwiftSoup */; };
@@ -97,7 +97,7 @@
 		16965F792AABA26400973CD3 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryRowView.swift; sourceTree = "<group>"; };
 		16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDetailView.swift; sourceTree = "<group>"; };
-		16965F802AABBB5800973CD3 /* ChatResponseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponseParser.swift; sourceTree = "<group>"; };
+		16965F802AABBB5800973CD3 /* ItineraryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryParser.swift; sourceTree = "<group>"; };
 		16965F842AABC08900973CD3 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		16965F862AABC3E000973CD3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -280,7 +280,7 @@
 		16965F7F2AABBB4E00973CD3 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				16965F802AABBB5800973CD3 /* ChatResponseParser.swift */,
+				16965F802AABBB5800973CD3 /* ItineraryParser.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -479,7 +479,7 @@
 				162DDAB52AA2A26C00B56B1D /* AuthError.swift in Sources */,
 				162DDACC2AA2A6DA00B56B1D /* ProfileView.swift in Sources */,
 				162DDABB2AA2A30F00B56B1D /* RegistrationView.swift in Sources */,
-				16965F812AABBB5800973CD3 /* ChatResponseParser.swift in Sources */,
+				16965F812AABBB5800973CD3 /* ItineraryParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
