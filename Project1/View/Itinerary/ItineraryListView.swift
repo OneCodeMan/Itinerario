@@ -13,6 +13,8 @@ struct ItineraryListView: View {
     
     var body: some View {
         NavigationStack {
+            
+            // There's gotta be a better way to do nav titles and toolbars... wtf
             Text("")
                 .navigationTitle("Your Itineraries")
                 .toolbar {
@@ -23,29 +25,33 @@ struct ItineraryListView: View {
                     }
                 }
             
-            ScrollView {
-                LazyVStack(alignment: .leading, spacing: 10) {
-                    let userSignedIn = authViewModel.userSession != nil
-                    if userSignedIn {
-                        if itineraryViewModel.itineraries.isEmpty {
-                            EmptyItineraryView()
-                        } else {
-                            ForEach(itineraryViewModel.itineraries) { itinerary in
-                                NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
-                                    ItineraryRowView(itinerary: itinerary)
+            if !itineraryViewModel.isLoading {
+                ScrollView {
+                    LazyVStack(alignment: .leading, spacing: 10) {
+                        let userSignedIn = authViewModel.userSession != nil
+                        if userSignedIn {
+                            if itineraryViewModel.itineraries.isEmpty {
+                                EmptyItineraryView()
+                            } else {
+                                ForEach(itineraryViewModel.itineraries) { itinerary in
+                                    NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
+                                        ItineraryRowView(itinerary: itinerary)
+                                    }
+                                    
                                 }
-                                
                             }
+                        } else {
+                            EmptyItineraryView()
                         }
-                    } else {
-                        EmptyItineraryView()
                     }
+                    .padding()
                 }
-                .padding()
+            } else {
+                ProgressView("Loading itineraries")
             }
+            
         }.task {
             Task { try await self.itineraryViewModel.fetchItineraries() }
-            print("List view appeared!")
         }
     }
 }

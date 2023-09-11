@@ -20,6 +20,7 @@ class ChatViewModel: ObservableObject {
     @Published var response: [String] = []
     @Published var places: [[String]] = []
     @Published var activities: [[String]] = []
+    @Published var isLoading = false
     
     func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int) async throws {
         print("DEBUG -- ChatViewModel -> sendItineraryRequest called\n")
@@ -30,6 +31,7 @@ class ChatViewModel: ObservableObject {
         print("\n\n Message: \n\n\(message)\n\n")
         
         // Fetch from API, get response
+        isLoading = true
         let rawResponse = try await ChatService.getChatData(message: message)
         
         // Parse the response.
@@ -37,6 +39,8 @@ class ChatViewModel: ObservableObject {
         self.response = parsedResponseData.parsedResponse
         self.places = parsedResponseData.places
         self.activities = parsedResponseData.activities
+        
+        isLoading = false
         
         print("Here's the parsed response from ChatViewModel: \n\n")
         print(self.response)
