@@ -43,6 +43,9 @@ struct ItineraryListView: View {
                 }
                 .padding()
             }
+        }.task {
+            Task { try await self.itineraryViewModel.fetchItineraries() }
+            print("List view appeared!")
         }
     }
 }
