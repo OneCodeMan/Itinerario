@@ -21,10 +21,14 @@ struct CreateItineraryView: View {
         NavigationView {
             ScrollView {
                 if !generatingItinerary {
-                    VStack {
+                    VStack(alignment: .center, spacing: 10) {
+                        Text("Create An Itinerary")
+                            .font(.largeTitle)
                         // The UI to send request
                         Group {
                             TextField("City", text: $city)
+                            Text("Duration: \(numberOfDays)")
+                            Stepper("Duration (days)", value: $numberOfDays, in: 1...10)
                             Button {
                                 Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays) }
                                 generatingItinerary.toggle()
