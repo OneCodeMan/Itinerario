@@ -61,10 +61,18 @@ struct CreateItineraryView: View {
                                 } label: {
                                     Text("Save to my itineraries")
                                 }
+                                .padding()
+                                .background(Color(red: 0, green: 0, blue: 0.5))
+                                .foregroundStyle(.white)
+                                .clipShape(Capsule())
                             }
                         } // scrollview
+                        .padding()
                     } else {
+                        Spacer()
                         ProgressView("Generating itinerary")
+                            .padding()
+                        Spacer()
                     }
                 }
                

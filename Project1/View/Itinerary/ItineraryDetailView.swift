@@ -22,6 +22,7 @@ struct ItineraryDetailView: View {
 
                     ForEach(element, id: \.self) { activity in
                         Text(activity)
+                            .frame(alignment: .leading)
                     }
                     
                     Divider()
