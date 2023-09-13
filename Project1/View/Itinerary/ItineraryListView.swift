@@ -11,6 +11,8 @@ struct ItineraryListView: View {
     @StateObject var itineraryViewModel = ItineraryViewModel()
     @EnvironmentObject var authViewModel: AuthViewModel
     
+    @State var displayCreateItinerarySheet = false
+    
     var body: some View {
         NavigationStack {
             
@@ -21,10 +23,16 @@ struct ItineraryListView: View {
                 .navigationTitle("Your Itineraries")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        NavigationLink(destination: CreateItineraryView()) {
-                            Text("New Itinerary")
+                        
+                        Button("New Itinerary") {
+                            displayCreateItinerarySheet.toggle()
                         }
                     }
+                }
+                .sheet(isPresented: $displayCreateItinerarySheet, onDismiss: {
+                    Task { try await self.itineraryViewModel.fetchItineraries() }
+                }) {
+                    CreateItineraryView()
                 }
             
             // Actual view..
