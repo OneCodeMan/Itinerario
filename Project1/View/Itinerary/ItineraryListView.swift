@@ -14,6 +14,8 @@ struct ItineraryListView: View {
     var body: some View {
         NavigationStack {
             
+            // Toolbars
+            
             // There's gotta be a better way to do nav titles and toolbars... wtf
             Text("")
                 .navigationTitle("Your Itineraries")
@@ -24,6 +26,8 @@ struct ItineraryListView: View {
                         }
                     }
                 }
+            
+            // Actual view..
             
             if !itineraryViewModel.isLoading {
                 ScrollView {
@@ -50,7 +54,8 @@ struct ItineraryListView: View {
                 ProgressView("Loading itineraries")
             }
             
-        }.task {
+        }
+        .onAppear {
             Task { try await self.itineraryViewModel.fetchItineraries() }
         }
     }
