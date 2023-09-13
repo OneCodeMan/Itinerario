@@ -38,25 +38,20 @@ struct ItineraryListView: View {
             // Actual view..
             
             if !itineraryViewModel.isLoading {
-                ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 10) {
-                        let userSignedIn = authViewModel.userSession != nil
-                        if userSignedIn {
-                            if itineraryViewModel.itineraries.isEmpty {
-                                EmptyItineraryView()
-                            } else {
-                                ForEach(itineraryViewModel.itineraries) { itinerary in
-                                    NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
-                                        ItineraryRowView(itinerary: itinerary)
-                                    }
-                                    
-                                }
+                let userSignedIn = authViewModel.userSession != nil
+                if userSignedIn {
+                    if itineraryViewModel.itineraries.isEmpty {
+                        EmptyItineraryView()
+                    } else {
+                        List(itineraryViewModel.itineraries, id: \.self) { itinerary in
+                            NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
+                                ItineraryRowView(itinerary: itinerary)
                             }
-                        } else {
-                            EmptyItineraryView()
                         }
+                        .scrollContentBackground(.hidden)
                     }
-                    .padding()
+                } else {
+                    EmptyItineraryView()
                 }
             } else {
                 ProgressView("Loading itineraries")

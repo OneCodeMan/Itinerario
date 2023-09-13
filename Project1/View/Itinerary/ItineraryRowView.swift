@@ -10,9 +10,10 @@ import SwiftUI
 struct ItineraryRowView: View {
     let itinerary: ItineraryDisplay
     var body: some View {
-        VStack {
-            Text("\(String(itinerary.numberOfDays)) days in \(itinerary.city), \(itinerary.country ?? "")")
+        HStack(alignment: .center) {
+            Image(systemName: "airplane")
+            Text("\(String(itinerary.numberOfDays)) days in \(itinerary.city)")
         }
-        .background(Color.green)
+        .padding()
     }
 }

@@ -24,7 +24,7 @@ struct ChatResponse {
     var parsedResponse: [String]
 }
 
-struct ItineraryDisplay: Identifiable {
+struct ItineraryDisplay: Identifiable, Hashable {
     let id = UUID()
 
     var city: String
