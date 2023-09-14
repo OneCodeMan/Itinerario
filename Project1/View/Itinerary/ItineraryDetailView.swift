@@ -24,7 +24,7 @@ struct ItineraryDetailView: View {
                         VStack {
                             Text(activity)
                         }
-                        
+                        .frame(alignment: .leading)
                     }
                     
                     Divider()

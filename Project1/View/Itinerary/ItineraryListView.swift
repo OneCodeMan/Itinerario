@@ -56,6 +56,7 @@ struct ItineraryListView: View {
                             }
                         }
                         .scrollContentBackground(.hidden)
+                        .listStyle(InsetListStyle())
                     }
                 } else {
                     EmptyItineraryView()
