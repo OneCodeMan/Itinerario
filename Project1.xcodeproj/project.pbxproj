@@ -46,6 +46,7 @@
 		16965F872AABC3E000973CD3 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16965F862AABC3E000973CD3 /* Keys.plist */; };
 		16965F8F2AABDDD300973CD3 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 16965F8E2AABDDD300973CD3 /* SwiftSoup */; };
 		16965F912AAF9B6200973CD3 /* GeneratedItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F902AAF9B6200973CD3 /* GeneratedItineraryView.swift */; };
+		16965F942AB2717200973CD3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F932AB2717200973CD3 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		16965F842AABC08900973CD3 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		16965F862AABC3E000973CD3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		16965F902AAF9B6200973CD3 /* GeneratedItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedItineraryView.swift; sourceTree = "<group>"; };
+		16965F932AB2717200973CD3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		162DDA7E2A9FD25600B56B1D /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
+				16965F922AB2716000973CD3 /* Style */,
 				16965F7F2AABBB4E00973CD3 /* Util */,
 				16965F752AAB980A00973CD3 /* Data */,
 				162DDAB12AA2A23E00B56B1D /* ViewModel */,
@@ -313,6 +316,14 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		16965F922AB2716000973CD3 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				16965F932AB2717200973CD3 /* CustomButton.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -460,6 +471,7 @@
 			files = (
 				16965F7A2AABA26400973CD3 /* TestView.swift in Sources */,
 				162DDAB32AA2A25500B56B1D /* User.swift in Sources */,
+				16965F942AB2717200973CD3 /* CustomButton.swift in Sources */,
 				16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */,
 				16965F672AAA370000973CD3 /* Itinerary.swift in Sources */,
 				162DDAB92AA2A30100B56B1D /* LoginView.swift in Sources */,

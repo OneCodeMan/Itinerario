@@ -55,16 +55,23 @@ struct CreateItineraryView: View {
                             }
                             
                             if !chatViewModel.activities.isEmpty {
-                                Button {
-                                    Task { try await createItineraryViewModel.uploadItinerary(city: self.city, numberOfDays: self.numberOfDays, details: chatViewModel.response) }
-                                    dismiss()
-                                } label: {
-                                    Text("Save to my itineraries")
+                                HStack {
+                                    Button {
+                                        Task { try await createItineraryViewModel.uploadItinerary(city: self.city, numberOfDays: self.numberOfDays, details: chatViewModel.response) }
+                                        dismiss()
+                                    } label: {
+                                        Text("Save to my itineraries")
+                                    }
+                                    .buttonStyle(CustomButton())
+                                    
+                                    Button {
+                                        generatingItinerary.toggle()
+                                    } label: {
+                                        Text("Generate another itinerary")
+                                    }
+                                    .buttonStyle(CustomButton())
                                 }
                                 .padding()
-                                .background(Color(red: 0, green: 0, blue: 0.5))
-                                .foregroundStyle(.white)
-                                .clipShape(Capsule())
                             }
                         } // scrollview
                         .padding()
