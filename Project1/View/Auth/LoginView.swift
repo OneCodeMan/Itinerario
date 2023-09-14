@@ -24,10 +24,10 @@ struct LoginView: View {
                 
                 // form fields
                 VStack(spacing: 24) {
-                    InputView(text: $email, title: "Email Address", placeholder: "name@example.com")
+                    AuthInputView(text: $email, title: "Email Address", placeholder: "name@example.com")
                     .autocapitalization(.none)
                     
-                    InputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
+                    AuthInputView(text: $password, title: "Password", placeholder: "Enter your password", isSecureField: true)
                     .autocapitalization(.none)
                     
                     NavigationLink {

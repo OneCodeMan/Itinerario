@@ -20,7 +20,7 @@ struct ResetPasswordView: View {
                 .frame(width: 100, height: 140)
                 .padding(.vertical, 32)
             
-            InputView(text: $email, title: "Email Address", placeholder: "Enter email address associated with account")
+            AuthInputView(text: $email, title: "Email Address", placeholder: "Enter email address associated with account")
                 .padding()
             
             Button {

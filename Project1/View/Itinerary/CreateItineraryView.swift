@@ -12,7 +12,7 @@ struct CreateItineraryView: View {
     @ObservedObject var chatViewModel = ChatViewModel()
 
     @State var generatingItinerary = false
-    @State var city = "Paris"
+    @State var city = ""
     @State var numberOfDays = 3
     
     @Environment(\.dismiss) var dismiss
@@ -26,9 +26,21 @@ struct CreateItineraryView: View {
                             .font(.largeTitle)
                         // The UI to send request
                         Group {
-                            TextField("City", text: $city)
-                            Text("Duration: \(numberOfDays)")
-                            Stepper("Duration (days)", value: $numberOfDays, in: 1...10)
+                            // Form stuff
+                            
+                            // City
+                            GenerateItineraryInputView(text: $city, title: "City", placeholder: "Paris", fieldFontSize: 18.0)
+                            
+                            // Duration
+                            HStack {
+                                Text("Duration (days): \(numberOfDays)")
+                                Stepper("Days", value: $numberOfDays, in: 1...10)
+                            }
+                            
+                            // Interests
+                            InterestButton(interestTitle: "Beer")
+                           
+                            // Generate button
                             Button {
                                 Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays) }
                                 generatingItinerary.toggle()

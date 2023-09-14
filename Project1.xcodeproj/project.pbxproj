@@ -27,7 +27,7 @@
 		162DDAC42AA2A4A300B56B1D /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 162DDAC32AA2A4A300B56B1D /* FirebaseFirestore */; };
 		162DDAC62AA2A4A300B56B1D /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 162DDAC52AA2A4A300B56B1D /* FirebaseFirestoreSwift */; };
 		162DDAC82AA2A4A300B56B1D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 162DDAC72AA2A4A300B56B1D /* FirebaseStorage */; };
-		162DDACA2AA2A5FF00B56B1D /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDAC92AA2A5FF00B56B1D /* InputView.swift */; };
+		162DDACA2AA2A5FF00B56B1D /* AuthInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDAC92AA2A5FF00B56B1D /* AuthInputView.swift */; };
 		162DDACC2AA2A6DA00B56B1D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */; };
 		162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */; };
 		16965F672AAA370000973CD3 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F662AAA370000973CD3 /* Itinerary.swift */; };
@@ -48,6 +48,7 @@
 		16965F912AAF9B6200973CD3 /* GeneratedItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F902AAF9B6200973CD3 /* GeneratedItineraryView.swift */; };
 		16965F942AB2717200973CD3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F932AB2717200973CD3 /* CustomButton.swift */; };
 		16965F982AB32C9A00973CD3 /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F972AB32C9A00973CD3 /* TopTabBarView.swift */; };
+		16965F9A2AB3A17500973CD3 /* InterestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F992AB3A17500973CD3 /* InterestButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +87,7 @@
 		162DDABA2AA2A30F00B56B1D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		162DDABC2AA2A31E00B56B1D /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		162DDABE2AA2A41E00B56B1D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		162DDAC92AA2A5FF00B56B1D /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		162DDAC92AA2A5FF00B56B1D /* AuthInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInputView.swift; sourceTree = "<group>"; };
 		162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		16965F662AAA370000973CD3 /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		16965F902AAF9B6200973CD3 /* GeneratedItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedItineraryView.swift; sourceTree = "<group>"; };
 		16965F932AB2717200973CD3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		16965F972AB32C9A00973CD3 /* TopTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarView.swift; sourceTree = "<group>"; };
+		16965F992AB3A17500973CD3 /* InterestButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,7 +221,7 @@
 				16965F782AABA25B00973CD3 /* Testing */,
 				16965F702AAB94C000973CD3 /* Itinerary */,
 				162DDACF2AA2AAC700B56B1D /* Auth */,
-				162DDAC92AA2A5FF00B56B1D /* InputView.swift */,
+				162DDAC92AA2A5FF00B56B1D /* AuthInputView.swift */,
 				162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */,
 			);
 			path = View;
@@ -266,6 +268,7 @@
 				16965F7B2AABA55500973CD3 /* ItineraryRowView.swift */,
 				16965F7D2AABAE2300973CD3 /* ItineraryDetailView.swift */,
 				16965F902AAF9B6200973CD3 /* GeneratedItineraryView.swift */,
+				16965F992AB3A17500973CD3 /* InterestButton.swift */,
 			);
 			path = Itinerary;
 			sourceTree = "<group>";
@@ -502,11 +505,12 @@
 				16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */,
 				16965F982AB32C9A00973CD3 /* TopTabBarView.swift in Sources */,
 				16965F6D2AAA3CC600973CD3 /* CreateItineraryView.swift in Sources */,
-				162DDACA2AA2A5FF00B56B1D /* InputView.swift in Sources */,
+				162DDACA2AA2A5FF00B56B1D /* AuthInputView.swift in Sources */,
 				162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */,
 				162DDAB52AA2A26C00B56B1D /* AuthError.swift in Sources */,
 				162DDACC2AA2A6DA00B56B1D /* ProfileView.swift in Sources */,
 				162DDABB2AA2A30F00B56B1D /* RegistrationView.swift in Sources */,
+				16965F9A2AB3A17500973CD3 /* InterestButton.swift in Sources */,
 				16965F812AABBB5800973CD3 /* ItineraryParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
