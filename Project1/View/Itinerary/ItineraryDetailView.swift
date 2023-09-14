@@ -15,21 +15,23 @@ struct ItineraryDetailView: View {
                 Text("\(itinerary.numberOfDays) Days in \(itinerary.city)")
                     .font(.largeTitle)
                 
+                Divider()
+                
                 ForEach(Array(itinerary.activities.enumerated()), id: \.offset) { index, element in
                     Text("Day \(index + 1)")
                         .font(.title)
-                        .padding()
+                        .padding(5)
 
                     ForEach(element, id: \.self) { activity in
                         VStack {
-                            Text(activity)
+                            Text("\u{2022} \(activity)")
                         }
-                        .frame(alignment: .leading)
+                        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading) // Achieves the Text() alignment we want
                     }
                     
                     Divider()
                 }
-                .padding()
+                .padding(10)
             }
         }
     }
