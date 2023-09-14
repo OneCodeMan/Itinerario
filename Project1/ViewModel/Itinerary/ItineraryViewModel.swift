@@ -22,7 +22,6 @@ class ItineraryViewModel: ObservableObject {
         let fetchedItineraries = try await ItineraryService.fetchItineraries()
         self.itineraries = fetchedItineraries
         self.itineraryDisplays = await ItineraryParser.parseResponseFromFirebase(itineraries: fetchedItineraries)
-        print(self.itineraryDisplays.first)
         isLoading = false
     }
     
