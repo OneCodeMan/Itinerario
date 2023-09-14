@@ -8,7 +8,8 @@
 import Foundation
 
 class ItineraryViewModel: ObservableObject {
-    @Published var itineraries = [ItineraryDisplay]()
+    private var itineraries = [Itinerary]()
+    @Published var itineraryDisplays = [ItineraryDisplay]()
     @Published var isLoading = false
     
     init() {
@@ -19,7 +20,13 @@ class ItineraryViewModel: ObservableObject {
     func fetchItineraries() async throws {
         isLoading = true
         let fetchedItineraries = try await ItineraryService.fetchItineraries()
-        self.itineraries = await ItineraryParser.parseResponseFromFirebase(itineraries: fetchedItineraries)
+        self.itineraries = fetchedItineraries
+        self.itineraryDisplays = await ItineraryParser.parseResponseFromFirebase(itineraries: fetchedItineraries)
+        print(self.itineraryDisplays.first)
         isLoading = false
+    }
+    
+    func deleteItinerary(withID id: String) {
+        ItineraryService.deleteItinerary(withID: id)
     }
 }

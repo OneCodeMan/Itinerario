@@ -24,4 +24,17 @@ struct ItineraryService {
         return documents
     }
     
+    static func deleteItinerary(withID id: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let snapshot = Firestore.firestore().collection("itineraries").document(id)
+
+        snapshot.delete() { error in
+            if let error = error {
+                print("Error deleting document")
+            } else {
+                print("Successfully deleted document")
+            }
+        }
+    }
+    
 }

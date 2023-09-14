@@ -35,6 +35,7 @@ struct CreateItineraryView: View {
                             } label: {
                                 Text("Generate!")
                             }
+                            .buttonStyle(CustomButton())
                             
                         }
                     }

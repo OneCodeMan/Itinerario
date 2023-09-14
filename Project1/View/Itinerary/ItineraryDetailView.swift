@@ -21,8 +21,10 @@ struct ItineraryDetailView: View {
                         .padding()
 
                     ForEach(element, id: \.self) { activity in
-                        Text(activity)
-                            .frame(alignment: .leading)
+                        VStack {
+                            Text(activity)
+                        }
+                        
                     }
                     
                     Divider()

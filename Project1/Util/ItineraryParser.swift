@@ -26,6 +26,8 @@ struct ChatResponse {
 
 struct ItineraryDisplay: Identifiable, Hashable {
     let id = UUID()
+    
+    let documentID: String
 
     var city: String
     var country: String = ""
@@ -62,7 +64,7 @@ struct ItineraryParser {
             for itinerary in itineraries {
                 let places = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: placeTag)
                 let activities = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: activityTag)
-                let itineraryDisplay = ItineraryDisplay(city: itinerary.city, numberOfDays: itinerary.numberOfDays, places: places, activities: activities)
+                let itineraryDisplay = ItineraryDisplay(documentID: itinerary.itineraryId ?? "", city: itinerary.city, numberOfDays: itinerary.numberOfDays, places: places, activities: activities)
                 itineraryDisplays.append(itineraryDisplay)
             }
         } catch {

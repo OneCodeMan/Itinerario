@@ -40,12 +40,19 @@ struct ItineraryListView: View {
             if !itineraryViewModel.isLoading {
                 let userSignedIn = authViewModel.userSession != nil
                 if userSignedIn {
-                    if itineraryViewModel.itineraries.isEmpty {
+                    if itineraryViewModel.itineraryDisplays.isEmpty {
                         EmptyItineraryView()
                     } else {
-                        List(itineraryViewModel.itineraries, id: \.self) { itinerary in
+                        List(itineraryViewModel.itineraryDisplays, id: \.self) { itinerary in
                             NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
                                 ItineraryRowView(itinerary: itinerary)
+                                    .swipeActions {
+                                        Button(role: .destructive) {
+                                            self.itineraryViewModel.deleteItinerary(withID: itinerary.documentID)
+                                        } label: {
+                                            Label("Delete", systemImage: "trash.fill")
+                                        }
+                                    }
                             }
                         }
                         .scrollContentBackground(.hidden)
