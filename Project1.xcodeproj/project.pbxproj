@@ -47,6 +47,7 @@
 		16965F8F2AABDDD300973CD3 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 16965F8E2AABDDD300973CD3 /* SwiftSoup */; };
 		16965F912AAF9B6200973CD3 /* GeneratedItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F902AAF9B6200973CD3 /* GeneratedItineraryView.swift */; };
 		16965F942AB2717200973CD3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F932AB2717200973CD3 /* CustomButton.swift */; };
+		16965F982AB32C9A00973CD3 /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F972AB32C9A00973CD3 /* TopTabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		16965F862AABC3E000973CD3 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		16965F902AAF9B6200973CD3 /* GeneratedItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratedItineraryView.swift; sourceTree = "<group>"; };
 		16965F932AB2717200973CD3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		16965F972AB32C9A00973CD3 /* TopTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +164,6 @@
 		162DDA7E2A9FD25600B56B1D /* Project1 */ = {
 			isa = PBXGroup;
 			children = (
-				16965F922AB2716000973CD3 /* Style */,
 				16965F7F2AABBB4E00973CD3 /* Util */,
 				16965F752AAB980A00973CD3 /* Data */,
 				162DDAB12AA2A23E00B56B1D /* ViewModel */,
@@ -214,6 +215,7 @@
 		162DDAAF2AA2A23600B56B1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				16965F962AB32C4100973CD3 /* Components */,
 				16965F782AABA25B00973CD3 /* Testing */,
 				16965F702AAB94C000973CD3 /* Itinerary */,
 				162DDACF2AA2AAC700B56B1D /* Auth */,
@@ -316,12 +318,21 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		16965F922AB2716000973CD3 /* Style */ = {
+		16965F952AB32C3500973CD3 /* TopTab */ = {
 			isa = PBXGroup;
 			children = (
+				16965F972AB32C9A00973CD3 /* TopTabBarView.swift */,
+			);
+			path = TopTab;
+			sourceTree = "<group>";
+		};
+		16965F962AB32C4100973CD3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				16965F952AB32C3500973CD3 /* TopTab */,
 				16965F932AB2717200973CD3 /* CustomButton.swift */,
 			);
-			path = Style;
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +500,7 @@
 				162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */,
 				162DDAAB2AA08E2100B56B1D /* ChatService.swift in Sources */,
 				16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */,
+				16965F982AB32C9A00973CD3 /* TopTabBarView.swift in Sources */,
 				16965F6D2AAA3CC600973CD3 /* CreateItineraryView.swift in Sources */,
 				162DDACA2AA2A5FF00B56B1D /* InputView.swift in Sources */,
 				162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */,
