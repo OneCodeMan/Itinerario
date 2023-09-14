@@ -10,6 +10,9 @@ import SwiftUI
 struct ItineraryDetailView: View {
     let itinerary: ItineraryDisplay
     @State var currentTab: Int = 0
+    
+    private let pasteboard = UIPasteboard.general
+    
     var body: some View {
         VStack {
             Text("\(itinerary.numberOfDays) Days in \(itinerary.city)")
@@ -45,6 +48,17 @@ struct ItineraryDetailView: View {
                     ScrollView {
                         Spacer()
                             .frame(height: 80)
+                        
+                        HStack {
+                            Spacer()
+                            Button {
+                                pasteboard.string = "yoooo" // TODO
+                            } label: {
+                                Label("", systemImage: "doc.on.clipboard.fill")
+                                    .tint(Color.black)
+                            }
+                        }
+                        
                         
                         ForEach(Array(itinerary.places.enumerated()), id: \.offset) { index, element in
                             HStack {
