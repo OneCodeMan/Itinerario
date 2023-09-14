@@ -26,6 +26,18 @@ struct ItineraryDetailView: View {
                     ScrollView {
                         Spacer()
                             .frame(height: 80)
+                        
+                        // TODO: toast
+                        HStack {
+                            Spacer()
+                            Button {
+                                pasteboard.string = createPasteboardDataForActivities()
+                            } label: {
+                                Label("", systemImage: "doc.on.clipboard.fill")
+                                    .tint(Color.black)
+                            }
+                        }
+                        
                         ForEach(Array(itinerary.activities.enumerated()), id: \.offset) { index, element in
                             Text("Day \(index + 1)")
                                 .font(.title)
@@ -49,16 +61,16 @@ struct ItineraryDetailView: View {
                         Spacer()
                             .frame(height: 80)
                         
+                        // TODO: toast
                         HStack {
                             Spacer()
                             Button {
-                                pasteboard.string = "yoooo" // TODO
+                                pasteboard.string = createPasteboardDataForHighlights()
                             } label: {
                                 Label("", systemImage: "doc.on.clipboard.fill")
                                     .tint(Color.black)
                             }
                         }
-                        
                         
                         ForEach(Array(itinerary.places.enumerated()), id: \.offset) { index, element in
                             HStack {
@@ -93,5 +105,64 @@ struct ItineraryDetailView: View {
                 TopTabBarView(currentTab: self.$currentTab)
             }
         }
+    }
+    
+    /**
+     Looks like this:
+     
+     Day 1
+     - Head to the Naples National Archaeological Museum to explore ancient artifacts and artwork.
+     - Visit the Naples Cathedral to admire its stunning architecture and artwork.
+     - Take a stroll along the Spaccanapoli street to experience the vibrant atmosphere of Naples' historic center.
+
+     Day 2
+     - Explore the Pompeii Archaeological Park to witness the ancient ruins of the city destroyed by the eruption of Mount Vesuvius.
+     - Visit the Herculaneum to see the well-preserved ruins of this ancient Roman town.
+     - Take a scenic drive along the Amalfi Coast to enjoy breathtaking views of the coastline and visit charming towns like Positano and Amalfi.
+
+     Day 3
+     - Take a day trip to the Isle of Capri to explore its stunning natural beauty, visit the famous Blue Grotto, and enjoy the island's upscale shops and restaurants.
+     - Visit the Royal Palace of Naples to admire its opulent architecture and explore its beautiful gardens.
+     - Indulge in Naples' famous pizza by trying out different pizzerias in the city, such as Pizzeria Da Michele and Sorbillo.
+
+     Day 4
+     - Take a guided tour of the Naples Underground to discover the city's hidden tunnels and learn about its fascinating history.
+     - Explore the Naples Botanical Garden to relax in its beautiful green spaces and admire a wide variety of plants and flowers.
+     - End your day with a visit to the Castel dell'Ovo to enjoy panoramic views of the city and the Bay of Naples.
+     */
+    private func createPasteboardDataForActivities() -> String {
+        var pasteboardString = ""
+        
+        for (index, activitySet) in itinerary.activities.enumerated() {
+            let activitiesAsBulletPoints = activitySet.map { "- \($0)" }
+            
+            let dailyActivities = "Day \(index + 1)\n\(activitiesAsBulletPoints.joined(separator: "\n"))\n\n"
+            pasteboardString += dailyActivities
+        }
+        
+        return pasteboardString
+    }
+    
+    /**
+        Looks like this:
+     Day 1:
+      -Naples National Archaeological Museum, Naples Cathedral, Spaccanapoli
+     Day 2:
+      -Pompeii Archaeological Park, Herculaneum, Amalfi Coast
+     Day 3:
+      -Isle of Capri, Royal Palace of Naples, Pizzeria Da Michele, Sorbillo
+     Day 4:
+      -Naples Underground, Naples Botanical Garden, Castel dell'Ovo
+     
+     */
+    private func createPasteboardDataForHighlights() -> String {
+        var pasteboardString = ""
+        
+        for (index, placesSet) in itinerary.places.enumerated() {
+            let dailyPlaces = "Day \(index + 1):\n -\(placesSet.joined(separator: ", ")) \n"
+            pasteboardString += dailyPlaces
+        }
+        
+        return pasteboardString
     }
 }
