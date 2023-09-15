@@ -14,7 +14,7 @@ struct Interest: Identifiable {
     
     var title: String
     var description: String
-    var isSelected: Bool = false
+    var icon: String
 }
 
 struct InterestButton: View {
@@ -25,12 +25,14 @@ struct InterestButton: View {
             self.isActivated.toggle()
         } label: {
             Text(interestTitle)
-                .padding()
+                .padding(2)
+                .tint(.white)
+            
         }
-        .background(isActivated ? .blue : .white)
+        .background(isActivated ? .blue : .yellow)
         .font(.system(size: 18))
         .padding()
-        .buttonStyle(.borderedProminent)
+        .cornerRadius(10)
     }
 }
 

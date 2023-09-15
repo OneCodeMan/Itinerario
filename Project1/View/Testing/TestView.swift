@@ -27,7 +27,7 @@ struct TestView: View {
             }
             
             Button {
-                Task { try await chatViewModel.sendItineraryRequest(city: "Madrid", numberOfDays: 3) }
+                Task { try await chatViewModel.sendItineraryRequest(city: "Madrid", numberOfDays: 3, interests: []) }
             } label: {
                 SettingsRowView(imageName: "bolt.fill", title: "Send sample OpenAI request", tintColor: .red)
             }

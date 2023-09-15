@@ -23,12 +23,11 @@ class ChatViewModel: ObservableObject {
     @Published var highlightedActivities: [[AttributedString]] = []
     @Published var isLoading = false
     
-    // TODO: add parameter "interests" here, then an array that stores the filter of for selected ones
-    func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int) async throws {
+    func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int, interests: [Interest]) async throws {
         print("DEBUG -- ChatViewModel -> sendItineraryRequest called\n")
         print("City: \(city) // Country: \(country)\n\n")
         
-        let message = buildItineraryMessage(city: city, numberOfDays: numberOfDays)
+        let message = buildItineraryMessage(city: city, numberOfDays: numberOfDays, interests: interests)
         
         print("\n\n Message: \n\n\(message)\n\n")
         
@@ -57,13 +56,6 @@ class ChatViewModel: ObservableObject {
 
     private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int, interests: [Interest] = []) -> String {
         
-        // TODO: remove this later, dummy data
-        let interests = [Interest(title: "Bars", description: "bars", isSelected: true),
-                         Interest(title: "Cafes", description: "cafes"),
-                         Interest(title: "Museums", description: "museums", isSelected: true),
-                         Interest(title: "Scenery", description: "scenic spots")]
-        
-        
         let message = """
             Answer in plain text please. Recommend me a \(numberOfDays) day itinerary to \(city) \(country).
             
@@ -88,7 +80,7 @@ class ChatViewModel: ObservableObject {
     }
     
     private func buildInterests(interests: [Interest]) -> String {
-        let interestsPortion = "\(interests.filter{ $0.isSelected }.map { "\($0.description)" }.reduce("") { $0 + ", " + $1 })"
+        let interestsPortion = "\(interests.map { "\($0.description)" }.reduce("") { $0 + ", " + $1 })"
         return interestsPortion
     }
 }

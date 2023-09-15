@@ -9,6 +9,16 @@ import Firebase
 
 class CreateItineraryViewModel: ObservableObject {
     
+    var interests = [
+        Interest(title: "Bars", description: "bars", icon: "🍺"),
+        Interest(title: "Cafes", description: "cafes", icon: "☕️"),
+        Interest(title: "Museums", description: "museums", icon: "🏛️"),
+//        Interest(title: "Culture", description: "culture"),
+//        Interest(title: "Night Life", description: "night life"),
+//        Interest(title: "Nature", description: "nature"),
+//        Interest(title: "Scenic spots", description: "scenic spots"),
+    ]
+    
     func uploadItinerary(city: String, numberOfDays: Int, details: [String]) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let itinerary = Itinerary(ownerUid: uid, city: city, numberOfDays: numberOfDays, details: details, timestamp: Timestamp())

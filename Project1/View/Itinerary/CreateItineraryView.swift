@@ -14,18 +14,7 @@ struct CreateItineraryView: View {
     @State var generatingItinerary = false
     @State var city = ""
     @State var numberOfDays = 3
-    
-    // FIXME: The viewmodel should have this
-    @State var interests = [InterestButton(interestTitle: "Alcohol"),
-                            InterestButton(interestTitle: "Coffee"),
-                            InterestButton(interestTitle: "Night Life"),
-                            InterestButton(interestTitle: "Nature"),
-                            InterestButton(interestTitle: "Good Weather"),
-                            InterestButton(interestTitle: "Culture"),
-                            InterestButton(interestTitle: "Beaches"),
-                            InterestButton(interestTitle: "Scenic spots"),
-                            InterestButton(interestTitle: "History"),
-                            InterestButton(interestTitle: "Good food")]
+    @State var chosenInterests = [Interest]()
     
     @Environment(\.dismiss) var dismiss
 
@@ -49,17 +38,29 @@ struct CreateItineraryView: View {
                                 Stepper("Days", value: $numberOfDays, in: 1...10)
                             }
                             
+                            // TODO: fix the UI when all interests are made
                             // Interests
-                            InterestButton(interestTitle: "Beer")
-                           
+                            ControlGroup {
+                                ForEach(createItineraryViewModel.interests) { element in
+                                    Button {
+                                        chosenInterests.append(element)
+                                        print(chosenInterests)
+                                    } label: {
+                                        Text(element.description)
+                                    }
+                                }
+                            }
+                            .padding()
+
                             // Generate button
                             Button {
                                 generatingItinerary.toggle()
-                                Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays) }
+                                Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: chosenInterests) }
                             } label: {
                                 Text("Generate!")
                             }
                             .buttonStyle(CustomButton())
+                            .disabled(city.isEmpty)
                             
                         } // group
                     }
@@ -73,6 +74,10 @@ struct CreateItineraryView: View {
                                 LazyVStack {
                                     Text("\(numberOfDays) Days in \(city)")
                                         .font(.largeTitle)
+                                    
+                                    // FIXME: breaks the UI
+//                                    Text(chosenInterests.map { $0.icon }.joined())
+//                                        .font(.caption)
                                     
                                     Divider()
                                     
