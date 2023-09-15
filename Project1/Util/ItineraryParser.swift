@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftSoup
+import SwiftUI
 
 struct ChatResponse {
     
@@ -24,7 +25,7 @@ struct ChatResponse {
     // Do we need this?
     var parsedResponse: [String]
     
-    var highlightedActivities: [[NSMutableAttributedString]]
+    var highlightedActivities: [[AttributedString]]
 }
 
 struct ItineraryDisplay: Identifiable, Hashable {
@@ -38,6 +39,7 @@ struct ItineraryDisplay: Identifiable, Hashable {
     
     var places: [[String]]
     var activities: [[String]]
+    var activitiesWithHighlightedPlaces: [[AttributedString]]
 }
 
 struct ItineraryParser {
@@ -53,8 +55,8 @@ struct ItineraryParser {
         do {
             let places = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: placeTag)
             let activities = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: activityTag)
-            let highlightedActivities = highlightPlaces(placesToBold: places, sentences: activities)
-            return ChatResponse(places: places, activities: activities, parsedResponse: parsedResponse, highlightedActivities: highlightedActivities)
+            let activitiesWithHighlightedPlaces = highlightPlaces(placesToBold: places, sentences: activities)
+            return ChatResponse(places: places, activities: activities, parsedResponse: parsedResponse, highlightedActivities: activitiesWithHighlightedPlaces)
         } catch {
             print("Error from parseResponse")
             return ChatResponse(places: [], activities: [], parsedResponse: [""], highlightedActivities: [])
@@ -83,7 +85,8 @@ struct ItineraryParser {
             for itinerary in itineraries {
                 let places = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: placeTag)
                 let activities = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: activityTag)
-                let itineraryDisplay = ItineraryDisplay(documentID: itinerary.itineraryId ?? "", city: itinerary.city, numberOfDays: itinerary.numberOfDays, places: places, activities: activities)
+                let activitiesWithHighlightedPlaces = highlightPlaces(placesToBold: places, sentences: activities)
+                let itineraryDisplay = ItineraryDisplay(documentID: itinerary.itineraryId ?? "", city: itinerary.city, numberOfDays: itinerary.numberOfDays, places: places, activities: activities, activitiesWithHighlightedPlaces: activitiesWithHighlightedPlaces)
                 itineraryDisplays.append(itineraryDisplay)
             }
         } catch {
@@ -94,8 +97,8 @@ struct ItineraryParser {
     }
     
     // Return a bunch of activities as NSMutableStrings, each place bolded
-    static func highlightPlaces(placesToBold: [[String]], sentences: [[String]]) -> [[NSMutableAttributedString]] {
-        var activitiesWithHighlightsForAllDays = [[NSMutableAttributedString]]()
+    static func highlightPlaces(placesToBold: [[String]], sentences: [[String]]) -> [[AttributedString]] {
+        var activitiesWithHighlightsForAllDays = [[AttributedString]]()
         let allPlacesToBoldFlattened = placesToBold.reduce([], +)
         
         // for every sentence in sentences
@@ -103,13 +106,14 @@ struct ItineraryParser {
         // if so.. add an attribute
         
         for sentenceGroup in sentences {
-            var dailyActivitiesWithHighlights = [NSMutableAttributedString]()
+            var dailyActivitiesWithHighlights = [AttributedString]()
             for sentence in sentenceGroup {
-                let attributedActivity = NSMutableAttributedString(string: sentence)
+                var attributedActivity = AttributedString(sentence)
                 
                 for word in allPlacesToBoldFlattened {
-                    let range = (sentence as NSString).range(of: word)
-                    attributedActivity.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 14), range: range)
+                    if let range = attributedActivity.range(of: word) {
+                        attributedActivity[range].foregroundColor = Color.blue
+                    }
                 }
                 dailyActivitiesWithHighlights.append(attributedActivity)
             }
@@ -117,6 +121,5 @@ struct ItineraryParser {
         }
         
         return activitiesWithHighlightsForAllDays
-        
     }
 }

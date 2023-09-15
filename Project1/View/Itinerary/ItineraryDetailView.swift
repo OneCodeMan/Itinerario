@@ -38,7 +38,7 @@ struct ItineraryDetailView: View {
                             }
                         }
                         
-                        ForEach(Array(itinerary.activities.enumerated()), id: \.offset) { index, element in
+                        ForEach(Array(itinerary.activitiesWithHighlightedPlaces.enumerated()), id: \.offset) { index, element in
                             Text("Day \(index + 1)")
                                 .font(.title)
                             

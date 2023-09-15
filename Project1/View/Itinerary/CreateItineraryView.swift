@@ -76,7 +76,7 @@ struct CreateItineraryView: View {
                                     
                                     Divider()
                                     
-                                    ForEach(Array(chatViewModel.activities.enumerated()), id: \.offset) { index, element in
+                                    ForEach(Array(chatViewModel.highlightedActivities.enumerated()), id: \.offset) { index, element in
                                         Text("Day \(index + 1)")
                                             .font(.title)
 

@@ -20,7 +20,7 @@ class ChatViewModel: ObservableObject {
     @Published var response: [String] = []
     @Published var places: [[String]] = []
     @Published var activities: [[String]] = []
-    @Published var highlightedActivities: [[NSMutableAttributedString]] = []
+    @Published var highlightedActivities: [[AttributedString]] = []
     @Published var isLoading = false
     
     // TODO: add parameter "interests" here, then an array that stores the filter of for selected ones
