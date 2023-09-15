@@ -16,6 +16,8 @@ struct ItineraryListView: View {
     var body: some View {
         NavigationStack {
             
+            let userSignedIn = authViewModel.userSession != nil
+            
             // Toolbars
             
             // There's gotta be a better way to do nav titles and toolbars... wtf
@@ -24,8 +26,10 @@ struct ItineraryListView: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         
-                        Button("New Itinerary") {
-                            displayCreateItinerarySheet.toggle()
+                        if userSignedIn {
+                            Button("New Itinerary") {
+                                displayCreateItinerarySheet.toggle()
+                            }
                         }
                     }
                 }
@@ -38,7 +42,6 @@ struct ItineraryListView: View {
             // Actual view..
             
             if !itineraryViewModel.isLoading {
-                let userSignedIn = authViewModel.userSession != nil
                 if userSignedIn {
                     if itineraryViewModel.itineraryDisplays.isEmpty {
                         EmptyItineraryView()

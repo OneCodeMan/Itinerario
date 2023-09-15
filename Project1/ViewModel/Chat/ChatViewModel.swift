@@ -22,6 +22,7 @@ class ChatViewModel: ObservableObject {
     @Published var activities: [[String]] = []
     @Published var isLoading = false
     
+    // TODO: add parameter "interests" here, then an array that stores the filter of for selected ones
     func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int) async throws {
         print("DEBUG -- ChatViewModel -> sendItineraryRequest called\n")
         print("City: \(city) // Country: \(country)\n\n")
@@ -50,9 +51,21 @@ class ChatViewModel: ObservableObject {
         print(self.activities)
     }
 
-    private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int) -> String {
+    private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int, interests: [Interest] = []) -> String {
+        
+        // TODO: remove this later, dummy data
+        let interests = [Interest(title: "Bars", description: "bars"),
+                         Interest(title: "Cafes", description: "cafes"),
+                         Interest(title: "Museums", description: "museums"),
+                         Interest(title: "Scenery", description: "scenic spots")]
+        
+        
         let message = """
-            Answer in plain text please. Recommend me a \(numberOfDays) day itinerary to \(city) \(country). Add the delimiter "!@#$%^&*" after each set of activities. Add "<place>" and "</place>" between each monument and mentioned place. Instead of bullet points, use the tags "<activity>" and "</activity>"
+            Answer in plain text please. Recommend me a \(numberOfDays) day itinerary to \(city) \(country).
+            
+            My interests are: \(buildInterests(interests: interests)).
+            
+            Add the delimiter "!@#$%^&*" after each set of activities. Add "<place>" and "</place>" between each monument and mentioned place. Instead of bullet points, use the tags "<activity>" and "</activity>"
 
             Format Example:
 
@@ -68,5 +81,10 @@ class ChatViewModel: ObservableObject {
             !@#$%^&*
             """
         return message
+    }
+    
+    private func buildInterests(interests: [Interest]) -> String {
+        let interestsPortion = "\(interests.map { "\($0.description)" }.reduce("") { $0 + ", " + $1 })"
+        return interestsPortion
     }
 }

@@ -9,6 +9,14 @@
 
 import SwiftUI
 
+struct Interest: Identifiable {
+    let id = UUID()
+    
+    var title: String
+    var description: String
+    var isSelected: Bool = false
+}
+
 struct InterestButton: View {
     let interestTitle: String
     @State var isActivated = false
