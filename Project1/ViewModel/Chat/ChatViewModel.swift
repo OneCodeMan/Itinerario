@@ -54,9 +54,9 @@ class ChatViewModel: ObservableObject {
     private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int, interests: [Interest] = []) -> String {
         
         // TODO: remove this later, dummy data
-        let interests = [Interest(title: "Bars", description: "bars"),
+        let interests = [Interest(title: "Bars", description: "bars", isSelected: true),
                          Interest(title: "Cafes", description: "cafes"),
-                         Interest(title: "Museums", description: "museums"),
+                         Interest(title: "Museums", description: "museums", isSelected: true),
                          Interest(title: "Scenery", description: "scenic spots")]
         
         
@@ -84,7 +84,7 @@ class ChatViewModel: ObservableObject {
     }
     
     private func buildInterests(interests: [Interest]) -> String {
-        let interestsPortion = "\(interests.map { "\($0.description)" }.reduce("") { $0 + ", " + $1 })"
+        let interestsPortion = "\(interests.filter{ $0.isSelected }.map { "\($0.description)" }.reduce("") { $0 + ", " + $1 })"
         return interestsPortion
     }
 }
