@@ -49,6 +49,7 @@
 		16965F942AB2717200973CD3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F932AB2717200973CD3 /* CustomButton.swift */; };
 		16965F982AB32C9A00973CD3 /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F972AB32C9A00973CD3 /* TopTabBarView.swift */; };
 		16965F9A2AB3A17500973CD3 /* InterestButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F992AB3A17500973CD3 /* InterestButton.swift */; };
+		16965F9E2AB4BF3F00973CD3 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F9D2AB4BF3F00973CD3 /* ToastView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		16965F932AB2717200973CD3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		16965F972AB32C9A00973CD3 /* TopTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarView.swift; sourceTree = "<group>"; };
 		16965F992AB3A17500973CD3 /* InterestButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestButton.swift; sourceTree = "<group>"; };
+		16965F9D2AB4BF3F00973CD3 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +336,7 @@
 			children = (
 				16965F952AB32C3500973CD3 /* TopTab */,
 				16965F932AB2717200973CD3 /* CustomButton.swift */,
+				16965F9D2AB4BF3F00973CD3 /* ToastView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				162DDAB32AA2A25500B56B1D /* User.swift in Sources */,
 				16965F942AB2717200973CD3 /* CustomButton.swift in Sources */,
 				16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */,
+				16965F9E2AB4BF3F00973CD3 /* ToastView.swift in Sources */,
 				16965F672AAA370000973CD3 /* Itinerary.swift in Sources */,
 				162DDAB92AA2A30100B56B1D /* LoginView.swift in Sources */,
 				16965F772AAB9DC000973CD3 /* EmptyItineraryView.swift in Sources */,

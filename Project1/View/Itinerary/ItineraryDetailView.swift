@@ -13,6 +13,8 @@ struct ItineraryDetailView: View {
     
     private let pasteboard = UIPasteboard.general
     
+    @State private var toast: Toast? = nil
+    
     var body: some View {
         VStack {
             Text("\(itinerary.numberOfDays) Days in \(itinerary.city)")
@@ -32,6 +34,7 @@ struct ItineraryDetailView: View {
                             Spacer()
                             Button {
                                 pasteboard.string = createPasteboardDataForActivities()
+                                toast = Toast(type: .success, title: "Copied to clipboard", message: "")
                             } label: {
                                 Label("", systemImage: "doc.on.clipboard.fill")
                                     .tint(Color.black)
@@ -55,17 +58,18 @@ struct ItineraryDetailView: View {
                         .padding(5)
                     }
                     .tag(0)
+                    .toastView(toast: $toast)
                     
                     // Highlights
                     ScrollView {
                         Spacer()
                             .frame(height: 80)
                         
-                        // TODO: toast
                         HStack {
                             Spacer()
                             Button {
                                 pasteboard.string = createPasteboardDataForHighlights()
+                                toast = Toast(type: .success, title: "Copied to clipboard", message: "")
                             } label: {
                                 Label("", systemImage: "doc.on.clipboard.fill")
                                     .tint(Color.black)
@@ -97,6 +101,7 @@ struct ItineraryDetailView: View {
                         .padding(3)
                     }
                     .tag(1)
+                    .toastView(toast: $toast)
                     
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))

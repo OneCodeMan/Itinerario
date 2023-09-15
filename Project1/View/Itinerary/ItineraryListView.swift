@@ -13,6 +13,8 @@ struct ItineraryListView: View {
     
     @State var displayCreateItinerarySheet = false
     
+    @State private var toast: Toast? = nil
+    
     var body: some View {
         NavigationStack {
             
@@ -52,6 +54,7 @@ struct ItineraryListView: View {
                                     .swipeActions {
                                         Button(role: .destructive) {
                                             self.itineraryViewModel.deleteItinerary(withID: itinerary.documentID)
+                                            toast = Toast(type: .info, title: "Itinerary Deleted", message: "")
                                         } label: {
                                             Label("Delete", systemImage: "trash.fill")
                                         }
@@ -60,6 +63,7 @@ struct ItineraryListView: View {
                         }
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
+                        .toastView(toast: $toast)
                     }
                 } else {
                     EmptyItineraryView()
