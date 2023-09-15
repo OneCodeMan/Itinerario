@@ -24,10 +24,10 @@ struct ContentView: View {
                 }
             
             // Test view
-            TestView()
-                .tabItem {
-                    Label("TEST", systemImage: "gear")
-                }
+//            TestView()
+//                .tabItem {
+//                    Label("TEST", systemImage: "gear")
+//                }
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import SwiftSoup
 
 struct ChatResponse {
@@ -22,6 +23,8 @@ struct ChatResponse {
     // For storing into Firebase
     // Do we need this?
     var parsedResponse: [String]
+    
+    var highlightedActivities: [[NSMutableAttributedString]]
 }
 
 struct ItineraryDisplay: Identifiable, Hashable {
@@ -50,12 +53,28 @@ struct ItineraryParser {
         do {
             let places = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: placeTag)
             let activities = try await extractCustomTags(arrayedResponse: parsedResponse, customTag: activityTag)
-            return ChatResponse(places: places, activities: activities, parsedResponse: parsedResponse)
+            let highlightedActivities = highlightPlaces(placesToBold: places, sentences: activities)
+            return ChatResponse(places: places, activities: activities, parsedResponse: parsedResponse, highlightedActivities: highlightedActivities)
         } catch {
             print("Error from parseResponse")
-            return ChatResponse(places: [], activities: [], parsedResponse: [""])
+            return ChatResponse(places: [], activities: [], parsedResponse: [""], highlightedActivities: [])
         }
         
+    }
+    
+    // Get an array of things between certain tags.
+    private static func extractCustomTags(arrayedResponse: [String], customTag: String) async throws -> [[String]] {
+        var items: [[String]] = Array(repeating: [], count: arrayedResponse.count)
+        for (day, plan) in arrayedResponse.enumerated() {
+            let doc = try SwiftSoup.parse(plan)
+            let taggedItems = try doc.select(customTag)
+            
+            for activity in taggedItems.array() {
+                items[day].append(try activity.text())
+            }
+            
+        }
+        return items
     }
     
     static func parseResponseFromFirebase(itineraries: [Itinerary]) async -> [ItineraryDisplay] {
@@ -74,18 +93,30 @@ struct ItineraryParser {
         return itineraryDisplays
     }
     
-    // Get an array of things between certain tags.
-    private static func extractCustomTags(arrayedResponse: [String], customTag: String) async throws -> [[String]] {
-        var items: [[String]] = Array(repeating: [], count: arrayedResponse.count)
-        for (day, plan) in arrayedResponse.enumerated() {
-            let doc = try SwiftSoup.parse(plan)
-            let taggedItems = try doc.select(customTag)
-            
-            for activity in taggedItems.array() {
-                items[day].append(try activity.text())
+    // Return a bunch of activities as NSMutableStrings, each place bolded
+    static func highlightPlaces(placesToBold: [[String]], sentences: [[String]]) -> [[NSMutableAttributedString]] {
+        var activitiesWithHighlightsForAllDays = [[NSMutableAttributedString]]()
+        let allPlacesToBoldFlattened = placesToBold.reduce([], +)
+        
+        // for every sentence in sentences
+        // check if each place in placesToBold is in that sentence
+        // if so.. add an attribute
+        
+        for sentenceGroup in sentences {
+            var dailyActivitiesWithHighlights = [NSMutableAttributedString]()
+            for sentence in sentenceGroup {
+                let attributedActivity = NSMutableAttributedString(string: sentence)
+                
+                for word in allPlacesToBoldFlattened {
+                    let range = (sentence as NSString).range(of: word)
+                    attributedActivity.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 14), range: range)
+                }
+                dailyActivitiesWithHighlights.append(attributedActivity)
             }
-            
+            activitiesWithHighlightsForAllDays.append(dailyActivitiesWithHighlights)
         }
-        return items
+        
+        return activitiesWithHighlightsForAllDays
+        
     }
 }

@@ -20,6 +20,7 @@ class ChatViewModel: ObservableObject {
     @Published var response: [String] = []
     @Published var places: [[String]] = []
     @Published var activities: [[String]] = []
+    @Published var highlightedActivities: [[NSMutableAttributedString]] = []
     @Published var isLoading = false
     
     // TODO: add parameter "interests" here, then an array that stores the filter of for selected ones
@@ -40,6 +41,7 @@ class ChatViewModel: ObservableObject {
         self.response = parsedResponseData.parsedResponse
         self.places = parsedResponseData.places
         self.activities = parsedResponseData.activities
+        self.highlightedActivities = parsedResponseData.highlightedActivities
         
         isLoading = false
         
@@ -49,6 +51,8 @@ class ChatViewModel: ObservableObject {
         print(self.places)
         print("\n\nHere are the activities:\n")
         print(self.activities)
+        print("\n\nHere are the HIGHLIGHTED activities:\n")
+        print(self.highlightedActivities)
     }
 
     private func buildItineraryMessage(city: String, country: String = "", numberOfDays: Int, interests: [Interest] = []) -> String {
