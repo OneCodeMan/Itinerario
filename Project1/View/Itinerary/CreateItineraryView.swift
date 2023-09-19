@@ -27,15 +27,17 @@ struct CreateItineraryView: View {
                 ZStack(alignment: .topTrailing) {
                     
                     // The top x button to close the form
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark")
-                            .foregroundColor(Color.red)
-                            .font(.title)
-                            .padding(20)
+                    if !chatViewModel.isLoading && !generatingItinerary {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(Color.red)
+                                .font(.title)
+                                .padding(20)
+                        }
+                        .padding(.bottom, 5)
                     }
-                    .padding(.bottom, 5)
 
                     if !generatingItinerary {
                         VStack(alignment: .center, spacing: 10) {
@@ -126,7 +128,7 @@ struct CreateItineraryView: View {
                                             Button {
                                                 saveItineraryAlertShowing.toggle()
                                             } label: {
-                                                Text("Save Itinerary")
+                                                Text("Save itinerary")
                                                     .frame(maxWidth: .infinity)
                                             }
                                             .alert(
@@ -179,8 +181,7 @@ struct CreateItineraryView: View {
                         } else {
                             VStack {
                                 Spacer()
-                                ProgressView("Generating itinerary")
-                                    .padding()
+                                CustomLoadingView(text: "Generating itinerary")
                                 Spacer()
                             }
                         }

@@ -88,7 +88,7 @@ struct RegistrationView: View {
             }
             
             if viewModel.isLoading {
-                ProgressView()
+                CustomLoadingView()
             }
         }
         .alert(isPresented: $viewModel.showAlert) {

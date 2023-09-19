@@ -23,15 +23,17 @@ struct ItineraryDetailView: View {
     
     var body: some View {
         VStack {
-            Text("\(itinerary.numberOfDays) Days in \(itinerary.city)")
-                .font(.largeTitle)
-                .frame(alignment: .center)
-            
-            Text("Created \(dateFormatter.string(from: itinerary.timestamp.dateValue()))")
-                .italic()
-                .foregroundColor(.gray)
-                .padding(.top, 1)
-                .font(.callout)
+            VStack {
+                Text("\(itinerary.numberOfDays) Days in \(itinerary.city)")
+                    .font(.largeTitle)
+                    .frame(alignment: .center)
+                
+                Text("Created \(dateFormatter.string(from: itinerary.timestamp.dateValue()))")
+                    .italic()
+                    .foregroundColor(.gray)
+                    .padding(.top, 1)
+                    .font(.callout)
+            }
             
             ZStack(alignment: .top) {
                 TabView(selection: self.$currentTab) {

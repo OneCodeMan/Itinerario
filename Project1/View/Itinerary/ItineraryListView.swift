@@ -69,7 +69,7 @@ struct ItineraryListView: View {
                     EmptyItineraryView()
                 }
             } else {
-                ProgressView("Loading itineraries")
+                CustomLoadingView(text: "Loading itineraries")
             }
             
         }

@@ -30,6 +30,7 @@
 		162DDACA2AA2A5FF00B56B1D /* AuthInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDAC92AA2A5FF00B56B1D /* AuthInputView.swift */; };
 		162DDACC2AA2A6DA00B56B1D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */; };
 		162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */; };
+		16612B352ABA1A5000CB945D /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16612B342ABA1A5000CB945D /* CustomLoadingView.swift */; };
 		16965F672AAA370000973CD3 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F662AAA370000973CD3 /* Itinerary.swift */; };
 		16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */; };
 		16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6A2AAA37D400973CD3 /* ItineraryService.swift */; };
@@ -91,6 +92,7 @@
 		162DDAC92AA2A5FF00B56B1D /* AuthInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthInputView.swift; sourceTree = "<group>"; };
 		162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		16612B342ABA1A5000CB945D /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
 		16965F662AAA370000973CD3 /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
 		16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItineraryViewModel.swift; sourceTree = "<group>"; };
 		16965F6A2AAA37D400973CD3 /* ItineraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryService.swift; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				16965F952AB32C3500973CD3 /* TopTab */,
 				16965F932AB2717200973CD3 /* CustomButton.swift */,
 				16965F9D2AB4BF3F00973CD3 /* ToastView.swift */,
+				16612B342ABA1A5000CB945D /* CustomLoadingView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */,
 				16965F9E2AB4BF3F00973CD3 /* ToastView.swift in Sources */,
 				16965F672AAA370000973CD3 /* Itinerary.swift in Sources */,
+				16612B352ABA1A5000CB945D /* CustomLoadingView.swift in Sources */,
 				162DDAB92AA2A30100B56B1D /* LoginView.swift in Sources */,
 				16965F772AAB9DC000973CD3 /* EmptyItineraryView.swift in Sources */,
 				16965F7E2AABAE2300973CD3 /* ItineraryDetailView.swift in Sources */,

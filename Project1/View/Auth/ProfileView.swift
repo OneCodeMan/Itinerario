@@ -70,7 +70,7 @@ struct ProfileView: View {
             }
             
             if viewModel.isLoading {
-                ProgressView()
+                CustomLoadingView()
             }
         }
     }
