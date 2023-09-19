@@ -15,6 +15,8 @@ struct ItineraryListView: View {
     
     @State private var toast: Toast? = nil
     
+    @State private var searchText: String = ""
+    
     var body: some View {
         NavigationStack {
             
@@ -48,7 +50,7 @@ struct ItineraryListView: View {
                     if itineraryViewModel.itineraryDisplays.isEmpty {
                         EmptyItineraryView()
                     } else {
-                        List(itineraryViewModel.itineraryDisplays, id: \.self) { itinerary in
+                        List(itineraryViewModel.filteredItineraryDisplays, id: \.self) { itinerary in
                             NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
                                 ItineraryRowView(itinerary: itinerary)
                                     .swipeActions {
@@ -64,6 +66,14 @@ struct ItineraryListView: View {
                         .scrollContentBackground(.hidden)
                         .listStyle(InsetListStyle())
                         .toastView(toast: $toast)
+                        .searchable(text: $searchText)
+                        .onChange(of: searchText) { search in
+                            if !search.isEmpty {
+                                self.itineraryViewModel.filterItineraries(term: search)
+                            } else {
+                                self.itineraryViewModel.resetFilteredItineraries()
+                            }
+                        }
                     }
                 } else {
                     EmptyItineraryView()
