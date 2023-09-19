@@ -12,7 +12,7 @@ struct ItineraryRowView: View {
     var body: some View {
         HStack(alignment: .center) {
             Image(systemName: "airplane")
-            Text("\(String(itinerary.numberOfDays)) days in \(itinerary.city)")
+            Text("\(String(itinerary.numberOfDays)) Days in \(itinerary.city)")
         }
         .padding()
     }
