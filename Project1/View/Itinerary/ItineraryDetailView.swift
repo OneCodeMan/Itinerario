@@ -15,11 +15,23 @@ struct ItineraryDetailView: View {
     
     @State private var toast: Toast? = nil
     
+    @State var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy 'at' HH:mm"
+        return dateFormatter
+    }()
+    
     var body: some View {
         VStack {
             Text("\(itinerary.numberOfDays) Days in \(itinerary.city)")
                 .font(.largeTitle)
                 .frame(alignment: .center)
+            
+            Text("Created \(dateFormatter.string(from: itinerary.timestamp.dateValue()))")
+                .italic()
+                .foregroundColor(.gray)
+                .padding(.top, 1)
+                .font(.callout)
             
             ZStack(alignment: .top) {
                 TabView(selection: self.$currentTab) {
@@ -29,7 +41,6 @@ struct ItineraryDetailView: View {
                         Spacer()
                             .frame(height: 80)
                         
-                        // TODO: toast
                         HStack {
                             Spacer()
                             Button {

@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 import SwiftSoup
 import SwiftUI
+import Firebase
 
 struct ChatResponse {
     
@@ -40,6 +41,8 @@ struct ItineraryDisplay: Identifiable, Hashable {
     var places: [[String]]
     var activities: [[String]]
     var activitiesWithHighlightedPlaces: [[AttributedString]]
+    
+    var timestamp: Timestamp
 }
 
 struct ItineraryParser {
@@ -86,7 +89,7 @@ struct ItineraryParser {
                 let places = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: placeTag)
                 let activities = try await extractCustomTags(arrayedResponse: itinerary.details, customTag: activityTag)
                 let activitiesWithHighlightedPlaces = highlightPlaces(placesToBold: places, sentences: activities)
-                let itineraryDisplay = ItineraryDisplay(documentID: itinerary.itineraryId ?? "", city: itinerary.city, numberOfDays: itinerary.numberOfDays, places: places, activities: activities, activitiesWithHighlightedPlaces: activitiesWithHighlightedPlaces)
+                let itineraryDisplay = ItineraryDisplay(documentID: itinerary.itineraryId ?? "", city: itinerary.city, numberOfDays: itinerary.numberOfDays, places: places, activities: activities, activitiesWithHighlightedPlaces: activitiesWithHighlightedPlaces, timestamp: itinerary.timestamp)
                 itineraryDisplays.append(itineraryDisplay)
             }
         } catch {
