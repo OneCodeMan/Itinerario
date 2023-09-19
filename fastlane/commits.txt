@@ -1,0 +1,15 @@
+Commits batch:
+3dc5407 - found out searachable was a thing (Dave Gumba)
+f2a4c25 - Update README.md (Dave Gumba)
+0559f45 - More styling changes (Dave Gumba)
+bdce3c4 - Custom progress view (Dave Gumba)
+c1a4265 - Create README.md (Dave Gumba)
+fd3df98 - rectangular buttons, alerts, let's gooooo (Dave Gumba)
+ca26db7 - created info on detailview, using firebase's timestmamp object (Dave Gumba)
+6811863 - toasted some stuff (Dave Gumba)
+21441eb - lots of buggy stuff but doing ok. ControlGroup for interests (Dave Gumba)
+ff3b545 - Gonna try something different with AttributedString (Dave Gumba)
+
+
+##############################
+

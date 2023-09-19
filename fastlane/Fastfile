@@ -1,0 +1,42 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Pull recent commits and type up a changelog"
+  lane :get_most_recent_commits do
+
+    # Use the `git log` command to get commits between the specified dates
+    git_log = sh("git log -n 10 --pretty=format:'%h - %s (%an)'")
+
+    # Specify the file path where you want to save the commits
+    file_path = "commits.txt"
+
+    # Write the commit log to the specified file
+    # Open the file in append mode and write the commit log
+    File.open(file_path, "a") do |file|
+      file.puts "Commits batch:"
+      file.puts git_log
+      file.puts "\n\n##############################\n\n"
+    end
+
+    # Output the commit log to the Fastlane console
+    puts "Most recent commits:"
+    puts git_log
+  end
+
+end
