@@ -16,7 +16,8 @@ struct CreateItineraryView: View {
     @State var numberOfDays = 3
     @State var chosenInterests = [Interest]()
     
-    @State private var toast: Toast? = nil
+    @State private var saveItineraryAlertShowing = false
+    @State private var generateAnotherItineraryAlertPresented = false
     
     @Environment(\.dismiss) var dismiss
     
@@ -34,6 +35,8 @@ struct CreateItineraryView: View {
                             .font(.title)
                             .padding(20)
                     }
+                    .padding(.bottom, 5)
+
                     if !generatingItinerary {
                         VStack(alignment: .center, spacing: 10) {
                             Spacer()
@@ -75,7 +78,7 @@ struct CreateItineraryView: View {
                                     Text("Generate!")
                                         .font(.headline)
                                 }
-                                .buttonStyle(CustomButton())
+                                .buttonStyle(CustomRoundButton())
                                 .disabled(city.isEmpty)
                                 
                                 Spacer()
@@ -116,37 +119,70 @@ struct CreateItineraryView: View {
                                         }
                                         .padding(10)
                                     }
+                                    .padding()
                                     
                                     if !chatViewModel.activities.isEmpty {
-                                        HStack {
+                                        VStack {
                                             Button {
-                                                Task { try await createItineraryViewModel.uploadItinerary(city: self.city, numberOfDays: self.numberOfDays, details: chatViewModel.response) }
-                                                toast = Toast(type: .success, title: "\(self.city) Itinerary Saved", message: "")
-                                                dismiss()
+                                                saveItineraryAlertShowing.toggle()
                                             } label: {
-                                                Text("Save to my itineraries")
+                                                Text("Save Itinerary")
+                                                    .frame(maxWidth: .infinity)
                                             }
-                                            .buttonStyle(CustomButton())
+                                            .alert(
+                                                "Save to your itineraries?",
+                                                isPresented: $saveItineraryAlertShowing
+                                            ) {
+                                                Button {
+                                                    Task { try await createItineraryViewModel.uploadItinerary(city: self.city, numberOfDays: self.numberOfDays, details: chatViewModel.response) }
+                                                    dismiss()
+                                                } label: {
+                                                    Text("Yes")
+                                                }
+                                                
+                                                Button("Cancel", role: .cancel) {
+                                                    
+                                                }
+                                                .foregroundColor(.red)
+                                            } // alert
+                                            .buttonStyle(CustomRectangularButton())
                                             
                                             Button {
-                                                generatingItinerary.toggle()
+                                                generateAnotherItineraryAlertPresented.toggle()
                                             } label: {
                                                 Text("Generate another itinerary")
+                                                    .frame(maxWidth: .infinity)
                                             }
-                                            .buttonStyle(CustomButton())
-                                        }
+                                            .alert(
+                                                "Generate another itinerary? This current itinerary will be deleted.",
+                                                isPresented: $generateAnotherItineraryAlertPresented
+                                            ) {
+                                                Button {
+                                                    generatingItinerary.toggle()
+                                                } label: {
+                                                    Text("Yes")
+                                                }
+                                                
+                                                Button("Cancel", role: .cancel) {
+                                                    
+                                                }
+                                                .foregroundColor(.red)
+                                            } // alert
+                                            .buttonStyle(CustomRectangularButton())
+                                        } // vstack
                                         .padding()
-                                        .toastView(toast: $toast)
                                     }
+                                    
                                 } // scrollview
                             }
-                            
                             .padding()
                         } else {
-                            Spacer()
-                            ProgressView("Generating itinerary")
-                                .padding()
-                            Spacer()
+                            VStack {
+                                Spacer()
+                                ProgressView("Generating itinerary")
+                                    .padding()
+                                Spacer()
+                            }
                         }
                     }
                     
