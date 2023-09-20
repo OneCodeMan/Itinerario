@@ -11,6 +11,7 @@ struct CreateItineraryView: View {
     @StateObject var createItineraryViewModel = CreateItineraryViewModel()
     @ObservedObject var chatViewModel = ChatViewModel()
     
+    // ViewModel should have all these values
     @State var generatingItinerary = false
     @State var city = ""
     @State var numberOfDays = 2
@@ -54,11 +55,12 @@ struct CreateItineraryView: View {
                                 
                                 // Duration
                                 VStack(alignment: .leading) {
-                                    Text("Duration (days)")
+                                    Text("Duration (days)") // TODO: LOcalize
                                         .foregroundColor(Color(.darkGray))
                                         .fontWeight(.semibold)
                                         .font(.system(size: 22.0))
-                                    Stepper("\(numberOfDays) Days", value: $numberOfDays, in: 1...10)
+                                    // FIXME: Hack
+                                    Stepper(numberOfDays == 1 ? "\(numberOfDays) Day" :  "\(numberOfDays) Days", value: $numberOfDays, in: 1...10)
                                     
                                     Divider()
                                     
@@ -117,10 +119,6 @@ struct CreateItineraryView: View {
                                     LazyVStack {
                                         Text("\(numberOfDays) Days in \(city)")
                                             .font(.largeTitle)
-                                        
-                                        // FIXME: breaks the UI
-                                        //                                    Text(chosenInterests.map { $0.icon }.joined())
-                                        //                                        .font(.caption)
                                         
                                         Divider()
                                         
