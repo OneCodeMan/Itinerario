@@ -139,8 +139,9 @@ struct CreateItineraryView: View {
                                             Divider()
                                         }
                                         .padding(10)
+                                        .padding(.bottom, 4)
                                     }
-                                    .padding()
+                                    .padding(.bottom, 8)
                                     
                                     if !chatViewModel.activities.isEmpty {
                                         VStack {
@@ -191,24 +192,20 @@ struct CreateItineraryView: View {
                                             } // alert
                                             .buttonStyle(CustomRectangularButton())
                                         } // vstack
-                                        .padding()
+                                        .padding(.top, 16)
                                     }
                                     
                                 } // scrollview
                             }
                             .padding()
                         } else {
-                            VStack {
-                                Spacer()
-                                CustomLoadingView(text: "Generating itinerary")
-                                Spacer()
-                            }
+                            CustomLoadingView(text: "Generating itinerary")
                         }
                     }
                     
                 }
             }
-        }
+        } // scrollview
         
     }
 }

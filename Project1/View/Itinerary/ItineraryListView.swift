@@ -54,7 +54,8 @@ struct ItineraryListView: View {
                             displayCreateItinerarySheet.toggle()
                         }
                     } else {
-                        List(itineraryViewModel.filteredItineraryDisplays, id: \.self) { itinerary in
+                        // FIXME: The ViewModel should sort it eh?
+                        List(itineraryViewModel.filteredItineraryDisplays.sorted{ $0.timestamp.dateValue() < $1.timestamp.dateValue() }, id: \.self) { itinerary in
                             NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
                                 ItineraryRowView(itinerary: itinerary)
                                     .swipeActions {
