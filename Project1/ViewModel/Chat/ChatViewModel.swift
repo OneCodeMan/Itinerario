@@ -77,6 +77,8 @@ class ChatViewModel: ObservableObject {
             !@#$%^&*
             
             But do it for \(numberOfDays) days!!!
+
+            AND MAKE SURE YOU HIGHLIGHT PLACES!
             """
         return message
     }
