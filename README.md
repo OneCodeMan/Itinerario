@@ -1,6 +1,17 @@
 # Itinerario
 I've been waiting for a guide to come and take me by the hand.
 
+## Info
+An app that generates a travel itinerary given a city, number of days and interests.
+User can create an account, generate an itinerary, save an itinerary, delete an itinerary.
+
+I made this to practice SwiftUI and Swift in general. I also wanted to practice MVVM.
+
+There is a `commits.txt` in the Fastlane directory. Periodically, I run a lane to fetch the most recent commits, in hopes that this can be some sort of development log using my commits. It also motivates me to take writing commits seriously.
+
+## Technology/techniques used
+Firebase, SwiftUI, OpenAI API.
+
 ## Demos
 
 ### September 19, 2023
