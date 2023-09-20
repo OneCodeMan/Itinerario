@@ -62,6 +62,7 @@ struct CreateItineraryView: View {
                                     
                                     Divider()
                                     
+                                    // TODO: Localize
                                     Text("Interests")
                                         .foregroundColor(Color(.darkGray))
                                         .fontWeight(.semibold)
@@ -71,10 +72,13 @@ struct CreateItineraryView: View {
                                         LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], alignment: .leading, spacing: 16) {
                                             ForEach(createItineraryViewModel.interests) { interest in
                                                 CheckboxItem(interest: interest) {
-                                                    // ViewModel functions???
-                                                    if createItineraryViewModel.chosenInterests.contains(where: { $0.title == interest.title }) {
+                                                    // TODO: ViewModel functions???
+                                                    let isCurrentInterestChosen = createItineraryViewModel.chosenInterests.contains(where: { $0.title == interest.title })
+                                                    if isCurrentInterestChosen {
+                                                        // Remove it from chosen interests on user tap
                                                         createItineraryViewModel.chosenInterests = createItineraryViewModel.chosenInterests.filter{ $0.title != interest.title }
                                                     } else {
+                                                        // Add it to chosen interests on user tap.
                                                         createItineraryViewModel.chosenInterests.append(interest)
                                                     }
                                                 }
@@ -90,7 +94,7 @@ struct CreateItineraryView: View {
                                         generatingItinerary.toggle()
                                         Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: createItineraryViewModel.chosenInterests) }
                                     } label: {
-                                        Text("Generate!")
+                                        Text("Generate!") // TODO: Localize
                                             .font(.headline)
                                             .frame(maxWidth: .infinity)
                                     }
