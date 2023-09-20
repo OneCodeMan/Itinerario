@@ -43,7 +43,7 @@ struct CreateItineraryView: View {
                         Group {
                             VStack(alignment: .center, spacing: 12) {
                                 Spacer()
-                                Text("Create An Itinerary")
+                                Text("Create An Itinerary") // TODO: Localize
                                     .font(.largeTitle)
                                 
                                 

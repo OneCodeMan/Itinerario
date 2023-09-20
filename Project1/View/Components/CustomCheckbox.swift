@@ -16,7 +16,8 @@ struct CheckboxItem: View {
     var body: some View {
         HStack {
             CustomCheckbox(isSelected: $isSelected)
-            Text(interest.title)
+            Text("\(interest.title) \(interest.icon)")
+                .fontWeight(isSelected ? .bold : .regular)
         }
         .onTapGesture {
             isSelected.toggle()
