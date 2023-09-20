@@ -22,7 +22,7 @@ class ChatViewModel: ObservableObject {
     @Published var activities: [[String]] = []
     @Published var highlightedActivities: [[AttributedString]] = []
     @Published var isLoading = false
-    
+
     func sendItineraryRequest(city: String, country: String = "", numberOfDays: Int, interests: [Interest]) async throws {
         print("DEBUG -- ChatViewModel -> sendItineraryRequest called\n")
         print("City: \(city) // Country: \(country)\n\n")

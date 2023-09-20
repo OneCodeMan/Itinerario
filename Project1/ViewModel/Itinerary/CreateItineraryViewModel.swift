@@ -13,11 +13,13 @@ class CreateItineraryViewModel: ObservableObject {
         Interest(title: "Bars", description: "bars", icon: "🍺"),
         Interest(title: "Cafes", description: "cafes", icon: "☕️"),
         Interest(title: "Museums", description: "museums", icon: "🏛️"),
-//        Interest(title: "Culture", description: "culture"),
-//        Interest(title: "Night Life", description: "night life"),
-//        Interest(title: "Nature", description: "nature"),
-//        Interest(title: "Scenic spots", description: "scenic spots"),
+        Interest(title: "Culture", description: "culture", icon: "🏛️"),
+        Interest(title: "Night Life", description: "night life", icon: "🏛️"),
+        Interest(title: "Nature", description: "nature", icon: "🏛️"),
+        Interest(title: "Scenic spots", description: "scenic spots", icon: "🏛️"),
     ]
+    
+    @Published var chosenInterests = [Interest]()
     
     func uploadItinerary(city: String, numberOfDays: Int, details: [String]) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }

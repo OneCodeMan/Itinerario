@@ -31,6 +31,7 @@
 		162DDACC2AA2A6DA00B56B1D /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */; };
 		162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */; };
 		16612B352ABA1A5000CB945D /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16612B342ABA1A5000CB945D /* CustomLoadingView.swift */; };
+		16612B392ABA4FA600CB945D /* CustomCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16612B382ABA4FA600CB945D /* CustomCheckbox.swift */; };
 		16965F672AAA370000973CD3 /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F662AAA370000973CD3 /* Itinerary.swift */; };
 		16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */; };
 		16965F6B2AAA37D400973CD3 /* ItineraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16965F6A2AAA37D400973CD3 /* ItineraryService.swift */; };
@@ -93,6 +94,7 @@
 		162DDACB2AA2A6DA00B56B1D /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		162DDACD2AA2A6F900B56B1D /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		16612B342ABA1A5000CB945D /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
+		16612B382ABA4FA600CB945D /* CustomCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckbox.swift; sourceTree = "<group>"; };
 		16965F662AAA370000973CD3 /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
 		16965F682AAA37B300973CD3 /* CreateItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateItineraryViewModel.swift; sourceTree = "<group>"; };
 		16965F6A2AAA37D400973CD3 /* ItineraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryService.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				16965F932AB2717200973CD3 /* CustomButton.swift */,
 				16965F9D2AB4BF3F00973CD3 /* ToastView.swift */,
 				16612B342ABA1A5000CB945D /* CustomLoadingView.swift */,
+				16612B382ABA4FA600CB945D /* CustomCheckbox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				162DDABD2AA2A31E00B56B1D /* ResetPasswordView.swift in Sources */,
 				162DDAB72AA2A2D700B56B1D /* AuthViewModel.swift in Sources */,
 				16965F7C2AABA55500973CD3 /* ItineraryRowView.swift in Sources */,
+				16612B392ABA4FA600CB945D /* CustomCheckbox.swift in Sources */,
 				16965F852AABC08900973CD3 /* ChatViewModel.swift in Sources */,
 				16965F722AAB94E000973CD3 /* AuthView.swift in Sources */,
 				162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */,

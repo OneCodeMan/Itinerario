@@ -14,7 +14,6 @@ struct CreateItineraryView: View {
     @State var generatingItinerary = false
     @State var city = ""
     @State var numberOfDays = 3
-    @State var chosenInterests = [Interest]()
     
     @State private var saveItineraryAlertShowing = false
     @State private var generateAnotherItineraryAlertPresented = false
@@ -38,15 +37,16 @@ struct CreateItineraryView: View {
                         }
                         .padding(.bottom, 5)
                     }
-
+                    
                     if !generatingItinerary {
-                        VStack(alignment: .center, spacing: 10) {
-                            Spacer()
-                            Text("Create An Itinerary")
-                                .font(.largeTitle)
-                            
-                            // The UI to send request
-                            Group {
+                        // The UI to send request
+                        Group {
+                            VStack(alignment: .center, spacing: 10) {
+                                Spacer()
+                                Text("Create An Itinerary")
+                                    .font(.largeTitle)
+                                
+                                
                                 // Form stuff
                                 
                                 // City
@@ -58,32 +58,35 @@ struct CreateItineraryView: View {
                                     Stepper("Days", value: $numberOfDays, in: 1...10)
                                 }
                                 
-                                // TODO: fix the UI when all interests are made
-                                // Interests
-                                ControlGroup {
-                                    ForEach(createItineraryViewModel.interests) { element in
-                                        Button {
-                                            chosenInterests.append(element)
-                                            print(chosenInterests)
-                                        } label: {
-                                            Text(element.description)
+                                VStack {
+                                    Text("Interests")
+                                        .font(.title)
+                                    
+                                    ForEach(createItineraryViewModel.interests) { interest in
+                                        
+                                        CheckboxItem(interest: interest) {
+                                            // ViewModel functions???
+                                            if createItineraryViewModel.chosenInterests.contains(where: { $0.title == interest.title }) {
+                                                createItineraryViewModel.chosenInterests = createItineraryViewModel.chosenInterests.filter{ $0.title != interest.title }
+                                            } else {
+                                                createItineraryViewModel.chosenInterests.append(interest)
+                                            }
                                         }
+                                        .padding()
                                     }
+                                    
+                                    // Generate button
+                                    Button {
+                                        generatingItinerary.toggle()
+                                        Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: createItineraryViewModel.chosenInterests) }
+                                    } label: {
+                                        Text("Generate!")
+                                            .font(.headline)
+                                    }
+                                    .buttonStyle(CustomRoundButton())
+                                    .disabled(city.isEmpty)
                                 }
-                                .padding()
                                 
-                                // Generate button
-                                Button {
-                                    generatingItinerary.toggle()
-                                    Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: chosenInterests) }
-                                } label: {
-                                    Text("Generate!")
-                                        .font(.headline)
-                                }
-                                .buttonStyle(CustomRoundButton())
-                                .disabled(city.isEmpty)
-                                
-                                Spacer()
                                 Spacer()
                                 
                             } // group
