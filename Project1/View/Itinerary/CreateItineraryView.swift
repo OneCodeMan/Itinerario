@@ -13,7 +13,7 @@ struct CreateItineraryView: View {
     
     @State var generatingItinerary = false
     @State var city = ""
-    @State var numberOfDays = 3
+    @State var numberOfDays = 2
     
     @State private var saveItineraryAlertShowing = false
     @State private var generateAnotherItineraryAlertPresented = false

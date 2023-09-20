@@ -13,13 +13,14 @@ class CreateItineraryViewModel: ObservableObject {
         Interest(title: "Bars", description: "bars", icon: "🍺"),
         Interest(title: "Cafes", description: "cafes", icon: "☕️"),
         Interest(title: "Museums", description: "museums", icon: "🏛️"),
+        Interest(title: "Food", description: "food", icon: "🍴"),
         Interest(title: "Culture", description: "culture", icon: "🎭"),
         Interest(title: "Night Life", description: "night life", icon: "🌙"),
         Interest(title: "Nature", description: "nature", icon: "⛰️"),
         Interest(title: "History", description: "history", icon: "🗿"),
         Interest(title: "Scenic", description: "scenic spots", icon: "🏞️"),
         Interest(title: "Shopping", description: "shopping", icon: "🛍️"),
-    ]
+    ].sorted { $0.title < $1.title } // alphabetical order
     
     @Published var chosenInterests = [Interest]()
     

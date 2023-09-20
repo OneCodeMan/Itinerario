@@ -9,19 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var tabSelection = 1
+    
     var body: some View {
-        TabView {
+        TabView(selection: $tabSelection) {
             // Itineraries
-            ItineraryListView()
+            ItineraryListView(tabSelection: $tabSelection)
                 .tabItem {
                     Label("Itineraries", systemImage: "map.fill")
                 }
+                .tag(1)
             
             // Profile view
             AuthView()
                 .tabItem {
                     Label("Account", systemImage: "person.crop.circle")
                 }
+                .tag(2)
             
             // Test view
 //            TestView()

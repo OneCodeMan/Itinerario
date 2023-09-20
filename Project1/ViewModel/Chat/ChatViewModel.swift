@@ -75,6 +75,8 @@ class ChatViewModel: ObservableObject {
             Day 3:
             <activity>Head to the <place>PLACE HERE</place> </activity>
             !@#$%^&*
+            
+            But do it for \(numberOfDays) days!!!
             """
         return message
     }

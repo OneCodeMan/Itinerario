@@ -11,6 +11,8 @@ struct ItineraryListView: View {
     @StateObject var itineraryViewModel = ItineraryViewModel()
     @EnvironmentObject var authViewModel: AuthViewModel
     
+    @Binding var tabSelection: Int
+    
     @State var displayCreateItinerarySheet = false
     
     @State private var toast: Toast? = nil
@@ -48,7 +50,9 @@ struct ItineraryListView: View {
             if !itineraryViewModel.isLoading {
                 if userSignedIn {
                     if itineraryViewModel.itineraryDisplays.isEmpty {
-                        EmptyItineraryView()
+                        EmptyItineraryView() {
+                            displayCreateItinerarySheet.toggle()
+                        }
                     } else {
                         List(itineraryViewModel.filteredItineraryDisplays, id: \.self) { itinerary in
                             NavigationLink(destination: ItineraryDetailView(itinerary: itinerary)) {
@@ -76,7 +80,10 @@ struct ItineraryListView: View {
                         }
                     }
                 } else {
-                    EmptyItineraryView()
+                    EmptyItineraryView() {
+                        self.tabSelection = 2
+                    }
+
                 }
             } else {
                 CustomLoadingView(text: "Loading itineraries")
@@ -86,11 +93,5 @@ struct ItineraryListView: View {
         .onAppear {
             Task { try await self.itineraryViewModel.fetchItineraries() }
         }
-    }
-}
-
-struct ItineraryListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItineraryListView()
     }
 }

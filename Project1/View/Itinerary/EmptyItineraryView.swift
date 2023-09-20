@@ -9,22 +9,15 @@ import SwiftUI
 
 struct EmptyItineraryView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
+    
+    var onRegistrationTap: () -> ()
+    
     var body: some View {
-        // if user is signed in
-        if authViewModel.userSession != nil {
-            Text("Create an itinerary!")
-        } else {
-            Button {
-                RegistrationView()
-            } label: {
-                Text("Sign in or create an account to generate an itinerary!")
-            }
+        Button {
+            onRegistrationTap()
+        } label: {
+            Text(authViewModel.userSession != nil ? "Create an itinerary!" : "Sign in or create an account to generate an itinerary!")
         }
     }
 }
 
-struct EmptyItineraryView_Previews: PreviewProvider {
-    static var previews: some View {
-        EmptyItineraryView()
-    }
-}
