@@ -41,7 +41,7 @@ struct CreateItineraryView: View {
                     if !generatingItinerary {
                         // The UI to send request
                         Group {
-                            VStack(alignment: .center, spacing: 10) {
+                            VStack(alignment: .center, spacing: 12) {
                                 Spacer()
                                 Text("Create An Itinerary")
                                     .font(.largeTitle)
@@ -53,14 +53,22 @@ struct CreateItineraryView: View {
                                 GenerateItineraryInputView(text: $city, title: "City", placeholder: "Paris", fieldFontSize: 18.0)
                                 
                                 // Duration
-                                HStack {
-                                    Text("Duration (days): \(numberOfDays)")
-                                    Stepper("Days", value: $numberOfDays, in: 1...10)
+                                VStack(alignment: .leading) {
+                                    Text("Duration (days)")
+                                        .foregroundColor(Color(.darkGray))
+                                        .fontWeight(.semibold)
+                                        .font(.system(size: 22.0))
+                                    Stepper("\(numberOfDays) Days", value: $numberOfDays, in: 1...10)
+                                    
+                                    Divider()
+                                    
+                                    Text("Interests")
+                                        .foregroundColor(Color(.darkGray))
+                                        .fontWeight(.semibold)
+                                        .font(.system(size: 22.0))
                                 }
                                 
-                                VStack {
-                                    Text("Interests")
-                                        .font(.title)
+                                VStack(alignment: .leading) {
                                     
                                     ForEach(createItineraryViewModel.interests) { interest in
                                         
@@ -72,7 +80,6 @@ struct CreateItineraryView: View {
                                                 createItineraryViewModel.chosenInterests.append(interest)
                                             }
                                         }
-                                        .padding()
                                     }
                                     
                                     // Generate button
@@ -85,6 +92,7 @@ struct CreateItineraryView: View {
                                     }
                                     .buttonStyle(CustomRoundButton())
                                     .disabled(city.isEmpty)
+                                    .padding()
                                 }
                                 
                                 Spacer()
