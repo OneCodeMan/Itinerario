@@ -66,9 +66,6 @@ struct CreateItineraryView: View {
                                         .foregroundColor(Color(.darkGray))
                                         .fontWeight(.semibold)
                                         .font(.system(size: 22.0))
-                                }
-                                
-                                VStack(alignment: .leading) {
                                     
                                     ForEach(createItineraryViewModel.interests) { interest in
                                         
@@ -82,20 +79,20 @@ struct CreateItineraryView: View {
                                         }
                                     }
                                     
-                                    // Generate button
-                                    Button {
-                                        generatingItinerary.toggle()
-                                        Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: createItineraryViewModel.chosenInterests) }
-                                    } label: {
-                                        Text("Generate!")
-                                            .font(.headline)
-                                    }
-                                    .buttonStyle(CustomRoundButton())
-                                    .disabled(city.isEmpty)
-                                    .padding()
                                 }
                                 
-                                Spacer()
+                                // Generate button
+                                Button {
+                                    generatingItinerary.toggle()
+                                    Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: createItineraryViewModel.chosenInterests) }
+                                } label: {
+                                    Text("Generate!")
+                                        .font(.headline)
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .buttonStyle(CustomRectangularButton())
+                                .disabled(city.isEmpty)
+                                .padding()
                                 
                             } // group
                         }
