@@ -67,33 +67,40 @@ struct CreateItineraryView: View {
                                         .fontWeight(.semibold)
                                         .font(.system(size: 22.0))
                                     
-                                    ForEach(createItineraryViewModel.interests) { interest in
-                                        
-                                        CheckboxItem(interest: interest) {
-                                            // ViewModel functions???
-                                            if createItineraryViewModel.chosenInterests.contains(where: { $0.title == interest.title }) {
-                                                createItineraryViewModel.chosenInterests = createItineraryViewModel.chosenInterests.filter{ $0.title != interest.title }
-                                            } else {
-                                                createItineraryViewModel.chosenInterests.append(interest)
+                                    ScrollView {
+                                        LazyVGrid(columns: [GridItem(.flexible(), spacing: 16), GridItem(.flexible(), spacing: 16)], alignment: .leading, spacing: 16) {
+                                            ForEach(createItineraryViewModel.interests) { interest in
+                                                CheckboxItem(interest: interest) {
+                                                    // ViewModel functions???
+                                                    if createItineraryViewModel.chosenInterests.contains(where: { $0.title == interest.title }) {
+                                                        createItineraryViewModel.chosenInterests = createItineraryViewModel.chosenInterests.filter{ $0.title != interest.title }
+                                                    } else {
+                                                        createItineraryViewModel.chosenInterests.append(interest)
+                                                    }
+                                                }
                                             }
                                         }
+                                        .padding(16)
                                     }
                                     
+                                    Divider()
+                                    
+                                    // Generate button
+                                    Button {
+                                        generatingItinerary.toggle()
+                                        Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: createItineraryViewModel.chosenInterests) }
+                                    } label: {
+                                        Text("Generate!")
+                                            .font(.headline)
+                                            .frame(maxWidth: .infinity)
+                                    }
+                                    .buttonStyle(CustomRectangularButton())
+                                    .disabled(city.isEmpty)
+                                    .padding()
+                                    .frame(alignment: .center)
+                                    
                                 }
-                                
-                                // Generate button
-                                Button {
-                                    generatingItinerary.toggle()
-                                    Task { try await chatViewModel.sendItineraryRequest(city: city, numberOfDays: numberOfDays, interests: createItineraryViewModel.chosenInterests) }
-                                } label: {
-                                    Text("Generate!")
-                                        .font(.headline)
-                                        .frame(maxWidth: .infinity)
-                                }
-                                .buttonStyle(CustomRectangularButton())
-                                .disabled(city.isEmpty)
-                                .padding()
-                                
+
                             } // group
                         }
                         .padding()
