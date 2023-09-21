@@ -1,0 +1,172 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ %2$@"
+          }
+        }
+      }
+    },
+    "%@ Days in %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ Days in %2$@"
+          }
+        }
+      }
+    },
+    "%lld Days" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld Day"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%lld Days"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld Days in %@" : {
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%1$lld Day in %2$@"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "%1$lld Days in %2$@"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "• %@" : {
+
+    },
+    "1.0.0" : {
+
+    },
+    "Account" : {
+
+    },
+    "Already have an account?" : {
+
+    },
+    "Back to Login" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Create An Itinerary" : {
+
+    },
+    "Create an itinerary!" : {
+
+    },
+    "Created %@" : {
+
+    },
+    "Day %lld" : {
+
+    },
+    "Delete" : {
+
+    },
+    "Don't have an account?" : {
+
+    },
+    "Duration (days)" : {
+
+    },
+    "Error" : {
+
+    },
+    "Forgot Password?" : {
+
+    },
+    "General" : {
+
+    },
+    "Generate another itinerary" : {
+
+    },
+    "Generate another itinerary? This current itinerary will be deleted." : {
+
+    },
+    "Generate!" : {
+
+    },
+    "hi" : {
+
+    },
+    "Interests" : {
+
+    },
+    "Itineraries" : {
+
+    },
+    "New Itinerary" : {
+
+    },
+    "Save itinerary" : {
+
+    },
+    "Save to your itineraries?" : {
+
+    },
+    "SEND RESET LINK" : {
+
+    },
+    "Sign in" : {
+
+    },
+    "SIGN IN" : {
+
+    },
+    "Sign in or create an account to generate an itinerary!" : {
+
+    },
+    "Sign up" : {
+
+    },
+    "SIGN UP" : {
+
+    },
+    "Yes" : {
+
+    },
+    "Your Itineraries" : {
+
+    }
+  },
+  "version" : "1.0"
+}

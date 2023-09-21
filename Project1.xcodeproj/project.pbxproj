@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1613C2C52ABC04DD00468597 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1613C2C42ABC04DD00468597 /* Localizable.xcstrings */; };
 		162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDA7F2A9FD25600B56B1D /* Project1App.swift */; };
 		162DDA822A9FD25600B56B1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDA812A9FD25600B56B1D /* ContentView.swift */; };
 		162DDA842A9FD25700B56B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 162DDA832A9FD25700B56B1D /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1613C2C42ABC04DD00468597 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		162DDA7C2A9FD25600B56B1D /* Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		162DDA7F2A9FD25600B56B1D /* Project1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project1App.swift; sourceTree = "<group>"; };
 		162DDA812A9FD25600B56B1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		162DDA732A9FD25600B56B1D = {
 			isa = PBXGroup;
 			children = (
+				1613C2C42ABC04DD00468597 /* Localizable.xcstrings */,
 				162DDA7E2A9FD25600B56B1D /* Project1 */,
 				16965F862AABC3E000973CD3 /* Keys.plist */,
 				162DDABE2AA2A41E00B56B1D /* GoogleService-Info.plist */,
@@ -465,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16965F872AABC3E000973CD3 /* Keys.plist in Resources */,
+				1613C2C52ABC04DD00468597 /* Localizable.xcstrings in Resources */,
 				162DDA872A9FD25700B56B1D /* Preview Assets.xcassets in Resources */,
 				162DDA842A9FD25700B56B1D /* Assets.xcassets in Resources */,
 				162DDABF2AA2A41E00B56B1D /* GoogleService-Info.plist in Resources */,

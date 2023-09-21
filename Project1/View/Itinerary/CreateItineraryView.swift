@@ -59,8 +59,8 @@ struct CreateItineraryView: View {
                                         .foregroundColor(Color(.darkGray))
                                         .fontWeight(.semibold)
                                         .font(.system(size: 22.0))
-                                    // FIXME: Hack
-                                    Stepper(numberOfDays == 1 ? "\(numberOfDays) Day" :  "\(numberOfDays) Days", value: $numberOfDays, in: 1...10)
+
+                                    Stepper("\(numberOfDays) Days", value: $numberOfDays, in: 1...10)
                                     
                                     Divider()
                                     
