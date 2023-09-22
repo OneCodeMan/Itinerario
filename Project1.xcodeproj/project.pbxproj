@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1613C2C52ABC04DD00468597 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1613C2C42ABC04DD00468597 /* Localizable.xcstrings */; };
+		1613C2FF2ABD0B4800468597 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1613C2FE2ABD0B4800468597 /* CustomError.swift */; };
 		162DDA802A9FD25600B56B1D /* Project1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDA7F2A9FD25600B56B1D /* Project1App.swift */; };
 		162DDA822A9FD25600B56B1D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162DDA812A9FD25600B56B1D /* ContentView.swift */; };
 		162DDA842A9FD25700B56B1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 162DDA832A9FD25700B56B1D /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		1613C2C42ABC04DD00468597 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1613C2FE2ABD0B4800468597 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		162DDA7C2A9FD25600B56B1D /* Project1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		162DDA7F2A9FD25600B56B1D /* Project1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project1App.swift; sourceTree = "<group>"; };
 		162DDA812A9FD25600B56B1D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				162DDAB22AA2A25500B56B1D /* User.swift */,
 				162DDAB42AA2A26C00B56B1D /* AuthError.swift */,
 				16965F662AAA370000973CD3 /* Itinerary.swift */,
+				1613C2FE2ABD0B4800468597 /* CustomError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				16965F692AAA37B300973CD3 /* CreateItineraryViewModel.swift in Sources */,
 				16965F982AB32C9A00973CD3 /* TopTabBarView.swift in Sources */,
 				16965F6D2AAA3CC600973CD3 /* CreateItineraryView.swift in Sources */,
+				1613C2FF2ABD0B4800468597 /* CustomError.swift in Sources */,
 				162DDACA2AA2A5FF00B56B1D /* AuthInputView.swift in Sources */,
 				162DDACE2AA2A6F900B56B1D /* SettingsRowView.swift in Sources */,
 				162DDAB52AA2A26C00B56B1D /* AuthError.swift in Sources */,

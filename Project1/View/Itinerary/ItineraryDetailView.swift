@@ -149,7 +149,7 @@ struct ItineraryDetailView: View {
      - End your day with a visit to the Castel dell'Ovo to enjoy panoramic views of the city and the Bay of Naples.
      */
     private func createPasteboardDataForActivities() -> String {
-        var pasteboardString = ""
+        var pasteboardString = "\(itinerary.numberOfDays) Days in \(itinerary.city)\n"
         
         for (index, activitySet) in itinerary.activities.enumerated() {
             let activitiesAsBulletPoints = activitySet.map { "- \($0)" }
@@ -174,7 +174,7 @@ struct ItineraryDetailView: View {
      
      */
     private func createPasteboardDataForHighlights() -> String {
-        var pasteboardString = ""
+        var pasteboardString = "\(itinerary.numberOfDays) Days in \(itinerary.city)\n"
         
         for (index, placesSet) in itinerary.places.enumerated() {
             let dailyPlaces = "Day \(index + 1):\n -\(placesSet.joined(separator: ", ")) \n"
