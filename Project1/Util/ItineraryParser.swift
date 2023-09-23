@@ -93,7 +93,7 @@ struct ItineraryParser {
                 itineraryDisplays.append(itineraryDisplay)
             }
         } catch {
-            print(error.localizedDescription)
+            print("ERROR FROM ITINERARYPARSER.parseResponseFromFirebase: \(error.localizedDescription)")
         }
         
         return itineraryDisplays

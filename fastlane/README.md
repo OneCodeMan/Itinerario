@@ -15,6 +15,14 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
+### ios get_commit_history
+
+```sh
+[bundle exec] fastlane ios get_commit_history
+```
+
+Get all commits (ideally from a certain branch, typing up a more elaborate changelog)
+
 ### ios get_most_recent_commits
 
 ```sh

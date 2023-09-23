@@ -22,7 +22,7 @@ struct ChatService {
             print("\n\n\n\n")
             return response
         } catch {
-            print(error.localizedDescription)
+            print("ERROR FROM CHATSERVICE.GETCHATDATA: \(error.localizedDescription)")
         }
             
         return ""

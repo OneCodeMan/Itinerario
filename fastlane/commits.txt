@@ -13,3 +13,18 @@ ff3b545 - Gonna try something different with AttributedString (Dave Gumba)
 
 ##############################
 
+Commits batch:
+b66e2d4 - Varied the loading message (Dave Gumba)
+e49acf8 - Generating itinerary... loading message now centerd. (Dave Gumba)
+f9e6bd6 - The pasteboard now contains the number of days and city (Dave Gumba)
+049f83a - Localized strings (Dave Gumba)
+d57614e - Changed to '1 Day' if only 1 day, and not '1 Days' (Dave Gumba)
+21401d8 - comments for later dev, list view sorted from oldest to earliest now (Dave Gumba)
+e9a306d - Change message to emphasize that places need to be highlighted and # of days has to be on point (Dave Gumba)
+aebe3d6 - Finnicky buttons on generated itinerary view sometimes hop to bottom of screen after being clicked. Working on the response. Sometimes # of days doesn't get fulfilled by OpenAI (Dave Gumba)
+8fddf3a - Selected checkbox items are now bolded, icon is displayed beside each checkbox (Dave Gumba)
+23b6c55 - Added a few TODOs (Dave Gumba)
+
+
+##############################
+

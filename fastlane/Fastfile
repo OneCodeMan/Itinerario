@@ -17,6 +17,26 @@ default_platform(:ios)
 
 platform :ios do
 
+  desc "Get all commits (ideally from a certain branch, typing up a more elaborate changelog)"
+  lane :get_commit_history do
+
+    # Get entire Git history
+    git_history = sh("git log --pretty='%C(cyan)%ad %C(yellow)%h %C(cyan)%d %Creset%s' --date-order --graph --date=iso")
+
+    # Get current branch
+    current_branch = sh("git branch --show-current")
+
+    # File of this git history
+    development_history_file_name = "dev_history.txt"
+
+    File.open(development_history_file_name, "a") do |file|
+      file.puts "Development History (branch: #{current_branch})"
+      file.puts "Read it like a novel!"
+      file.puts git_history
+    end
+
+  end
+
   desc "Pull recent commits and type up a changelog"
   lane :get_most_recent_commits do
 
@@ -29,7 +49,7 @@ platform :ios do
     # Write the commit log to the specified file
     # Open the file in append mode and write the commit log
     File.open(file_path, "a") do |file|
-      file.puts "Commits batch:"
+      file.puts "Commits batch: ${}"
       file.puts git_log
       file.puts "\n\n##############################\n\n"
     end

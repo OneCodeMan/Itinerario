@@ -1,0 +1,73 @@
+Development History (branch: bulk/1-september-1
+)
+Read it like a novel!
+* 2023-09-23 16:10:01 -0400 b66e2d4  (HEAD -> bulk/1-september-1) Varied the loading message
+* 2023-09-23 15:37:00 -0400 e49acf8  Generating itinerary... loading message now centerd.
+* 2023-09-22 17:46:13 -0400 f9e6bd6  The pasteboard now contains the number of days and city
+* 2023-09-21 12:53:24 -0400 049f83a  Localized strings
+* 2023-09-20 18:24:50 -0400 d57614e  Changed to '1 Day' if only 1 day, and not '1 Days'
+* 2023-09-20 16:09:21 -0400 21401d8  comments for later dev, list view sorted from oldest to earliest now
+* 2023-09-20 15:33:31 -0400 e9a306d  Change message to emphasize that places need to be highlighted and # of days has to be on point
+* 2023-09-20 15:25:06 -0400 aebe3d6  Finnicky buttons on generated itinerary view sometimes hop to bottom of screen after being clicked. Working on the response. Sometimes # of days doesn't get fulfilled by OpenAI
+* 2023-09-20 14:47:50 -0400 8fddf3a  Selected checkbox items are now bolded, icon is displayed beside each checkbox
+* 2023-09-20 14:34:18 -0400 23b6c55  Added a few TODOs
+* 2023-09-20 14:32:17 -0400 a47da54  Create Itinerary form looks waaay better. Just found out about Grid. Or remembered. It's how the Interest checkboxes are set up.
+* 2023-09-20 14:22:03 -0400 b27971e  Made button take up most of the width, and be rectangular
+* 2023-09-20 13:54:27 -0400 14e9a9f  Working on styling the Generate Itinerary form.. it's going better than I expected! Gotta make the Interests section a two column thing. But the Duration has a title and looks fine. Dividers are good
+* 2023-09-20 13:29:58 -0400 4891385  Made checkboxes have state and be square instead of circular
+* 2023-09-19 15:24:13 -0400 2f00638  started up a fastfile
+* 2023-09-19 14:41:17 -0400 3dc5407  found out searachable was a thing
+* 2023-09-19 14:44:55 -0400 f2a4c25  Update README.md
+* 2023-09-19 14:16:16 -0400 0559f45  More styling changes
+* 2023-09-19 14:14:22 -0400 bdce3c4  Custom progress view
+* 2023-09-19 14:25:34 -0400 c1a4265  Create README.md
+* 2023-09-19 13:55:21 -0400 fd3df98  rectangular buttons, alerts, let's gooooo
+* 2023-09-19 13:06:37 -0400 ca26db7  created info on detailview, using firebase's timestmamp object
+* 2023-09-15 18:17:01 -0400 6811863  toasted some stuff
+* 2023-09-15 12:25:48 -0400 21441eb  lots of buggy stuff but doing ok. ControlGroup for interests
+* 2023-09-15 11:30:51 -0400 ff3b545  Gonna try something different with AttributedString
+* 2023-09-15 11:06:43 -0400 1a5f219  working on bolding
+* 2023-09-14 20:25:47 -0400 b75fe5a  only take objects with isSelected == true
+* 2023-09-14 20:17:58 -0400 9699957  interests logic in progress
+* 2023-09-14 19:53:02 -0400 511b29d  grouping stuff into scrollviews because of that 10 limit group rule
+* 2023-09-14 16:26:32 -0400 0ac34f0  working on a button for interests
+* 2023-09-14 13:24:06 -0400 9d06017  copy to pasteboard is good, just need a toast
+* 2023-09-14 12:49:58 -0400 13e98c2  pasteboard
+* 2023-09-14 12:43:57 -0400 ddccab3  Highlights/Details custom top tabgit add --all
+* 2023-09-14 07:08:02 -0400 4460af2  styled the detail view of generated itinerary
+* 2023-09-14 07:01:54 -0400 13b82bc  more pading on detail view elements
+* 2023-09-14 06:57:17 -0400 441f1bb  aligned the elements on the detail view
+* 2023-09-14 06:49:40 -0400 6cb7625  .listStyle(ListInsetStyle()) to fullscreen list view
+* 2023-09-14 06:47:40 -0400 97f1b7c  added a delete itinerary option
+* 2023-09-13 21:31:27 -0400 18815a7  generate another itinerary is good. need a way to exit the sheet though
+* 2023-09-13 15:49:25 -0400 cb836af  getting there
+* 2023-09-13 15:35:34 -0400 65144fa  generate form is better. titles, and days is not hardcoded
+* 2023-09-13 15:00:42 -0400 c68afda  Gotta work on the form n ow for generating itienraries
+* 2023-09-13 14:45:56 -0400 dc85b98  nav is a lil better
+* 2023-09-13 14:33:05 -0400 fecf225  refactored a lot due to nav issues, still having them but it's better now
+* 2023-09-11 15:20:53 -0400 1cad041  separated UI page for generating and the generated itin
+* 2023-09-11 14:58:37 -0400 2df279e  about to do a big change
+* 2023-09-09 17:19:07 -0400 ea8035a  yessss got the data flow down
+* 2023-09-09 15:21:55 -0400 7fe6694  tags are constants
+* 2023-09-09 15:21:19 -0400 377f476  refactored the parsing from OpenAI
+* 2023-09-09 14:34:41 -0400 0a49d2e  save option
+* 2023-09-09 00:44:10 -0400 9e5092c  activities are extracted, it's just about saving it to firebase now, getting that flow down.
+* 2023-09-09 00:28:55 -0400 d9dffb3  getting to activities
+* 2023-09-08 20:39:32 -0400 0cc09bc  okkk
+* 2023-09-08 20:32:18 -0400 26c2b3c  ok now for a double array
+* 2023-09-08 20:26:52 -0400 4dc35ea  About to refactor the chat response to its own struct, that way we have the HTML format entire response but also some data from it
+* 2023-09-08 17:31:24 -0400 790f263  it looks ok so far
+* 2023-09-08 17:20:43 -0400 44bfb13  going to try creating a nav stack to get toolbar itemss
+* 2023-09-08 17:04:46 -0400 8e53639  ok now this works?
+* 2023-09-08 17:03:09 -0400 0154d73  omg gitignore ain't working
+* 2023-09-08 17:01:43 -0400 cb19341  will my keys show? getting response good
+* 2023-09-08 16:35:06 -0400 d3b560d  no p list for keys
+* 2023-09-08 16:31:16 -0400 01d639e  the chat service is wip
+* 2023-09-08 15:45:49 -0400 16b37b0  basic detail view
+* 2023-09-08 14:56:58 -0400 2d8a9c1  Next time, itinerary row view
+* 2023-09-08 14:21:20 -0400 c4a6c76  Slowly working on itinerary stuff
+* 2023-09-07 13:59:56 -0400 a5609f3  basic firebase and vm for itineraries
+* 2023-09-01 19:27:20 -0400 0e52a59  auth good
+* 2023-09-01 19:07:08 -0400 15869f5  auth good
+* 2023-09-01 18:39:30 -0400 3b14741  first
+* 2023-08-30 15:39:10 -0400 1f1e376  Initial Commit
