@@ -86,7 +86,7 @@ struct CreateItineraryView: View {
                                         }
                                         .padding(16)
                                     }
-                                    .disabled(true)
+                                    .scrollDisabled(true) // FIXME: The UI structure is not the best here. If I remove the ScrollView, it breaks. :(
                                     
                                     Divider()
                                     
