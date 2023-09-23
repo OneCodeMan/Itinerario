@@ -23,7 +23,6 @@ struct CreateItineraryView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
                 ZStack(alignment: .topTrailing) {
                     
                     // The top x button to close the form
@@ -55,7 +54,7 @@ struct CreateItineraryView: View {
                                 
                                 // Duration
                                 VStack(alignment: .leading) {
-                                    Text("Duration (days)") // TODO: LOcalize
+                                    Text("Duration (days)")
                                         .foregroundColor(Color(.darkGray))
                                         .fontWeight(.semibold)
                                         .font(.system(size: 22.0))
@@ -64,7 +63,6 @@ struct CreateItineraryView: View {
                                     
                                     Divider()
                                     
-                                    // TODO: Localize
                                     Text("Interests")
                                         .foregroundColor(Color(.darkGray))
                                         .fontWeight(.semibold)
@@ -88,6 +86,7 @@ struct CreateItineraryView: View {
                                         }
                                         .padding(16)
                                     }
+                                    .disabled(true)
                                     
                                     Divider()
                                     
@@ -197,13 +196,14 @@ struct CreateItineraryView: View {
                             }
                             .padding()
                         } else {
-                            CustomLoadingView(text: "Generating itinerary")
+                            VStack(alignment: .center, spacing: 10) {
+                                CustomLoadingView(text: "Generating itinerary...")
+                            }
                         }
                     }
                     
                 }
             }
-        } // scrollview
         
     }
 }

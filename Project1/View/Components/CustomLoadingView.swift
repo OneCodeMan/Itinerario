@@ -11,7 +11,8 @@ struct CustomLoadingView: View {
     @State var text: String = ""
     var body: some View {
         ProgressView(text)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .progressViewStyle(CircularProgressViewStyle())
+            .tint(.blue)
             .padding()
         
     }
