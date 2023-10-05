@@ -1,6 +1,16 @@
 # Itinerario
 I've been waiting for a guide to come and take me by the hand.
 
+## Overview
+<p float="left">
+  <img src="https://imgur.com/4iCXVE5.png" width="300" />
+  <img src="https://imgur.com/QJTdoVg.png" width="300" /> 
+  <img src="https://imgur.com/cS2yZ0e.png" width="300" />
+  <img src="https://imgur.com/NMgJLHJ.png" width="300" />
+  <img src="https://imgur.com/A3VqEvj.png" width="300" />
+  <img src="https://imgur.com/XJOjdwI.png" width="300" />
+</p>
+
 ## Demos
 
 ### September 24, 2023
